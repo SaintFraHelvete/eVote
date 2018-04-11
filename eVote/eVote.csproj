@@ -215,11 +215,14 @@
     <Content Include="Content\img\calendar-flat.png" />
     <Content Include="Content\img\Circle-icons-browser.svg.png" />
     <Content Include="Content\img\Circle-icons-computer.svg.png" />
+    <Content Include="Content\img\comm1.png" />
+    <Content Include="Content\img\comm2.png" />
+    <Content Include="Content\img\comm3.png" />
     <Content Include="Content\img\current.png" />
     <Content Include="Content\img\download %281%29.jpeg" />
     <Content Include="Content\img\message.png" />
+    <Content Include="Content\img\pending-alt.png" />
     <Content Include="Content\img\pending.png" />
-    <Content Include="Content\img\pending2.png" />
     <Content Include="Content\img\report_icon.png" />
     <Content Include="Content\img\reunion-1.png" />
     <Content Include="Content\img\rocket-big-grey-bg%402x.png" />
