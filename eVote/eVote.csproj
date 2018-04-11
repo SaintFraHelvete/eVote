@@ -26,7 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>2.1</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -210,6 +210,20 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\img\848347_speaker_512x512.png" />
+    <Content Include="Content\img\archive.png" />
+    <Content Include="Content\img\calendar-flat.png" />
+    <Content Include="Content\img\Circle-icons-browser.svg.png" />
+    <Content Include="Content\img\Circle-icons-computer.svg.png" />
+    <Content Include="Content\img\current.png" />
+    <Content Include="Content\img\download %281%29.jpeg" />
+    <Content Include="Content\img\message.png" />
+    <Content Include="Content\img\pending.png" />
+    <Content Include="Content\img\pending2.png" />
+    <Content Include="Content\img\report_icon.png" />
+    <Content Include="Content\img\reunion-1.png" />
+    <Content Include="Content\img\rocket-big-grey-bg%402x.png" />
+    <Content Include="Content\img\todo.png" />
     <Content Include="Content\mdb.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -336,6 +350,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Shared\_MainMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

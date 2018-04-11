@@ -2,103 +2,44 @@
     ViewBag.Title = "Home";
 }
 
-<div class="view zoom">
-    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
-    <div class="mask flex-center">
-        <p class="white-text">Zoom effect</p>
+@Html.Partial("_MainMenu")
+
+
+
+<hr/>
+<div class="container">
+    <div class="col-md-12 p-2">
+        <h1>Activity Feed</h1>
     </div>
-</div>
 
-<span class="fa fa-9x fa-user"/>
-
-    <!--Card group-->
-    <div class="card-deck">
-
-        <!--Card-->
-        <div class="card mb-4">
-
-            <!--Card image-->
-            <div class="view overlay">
-
-                <div class="view zoom">
-                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
-                    <div class="mask flex-center">
-                        <p class="white-text">Zoom effect</p>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <span class="badge badge-pill pink pull-lefts">New process</span>
+                <span class="badge badge-primary pull-right">Vote until 01/01/2018</span>
+                <a href="#"><h4 class="card-title">Name of new voting process</h4></a>
+                <p class="card-text">This is a comment that was added when creating a new voting process.</p>
+                <div class="row pb-2">
+                    <div class="col-6">
+                        PC/MC<br/>
+                        Category<br />
+                        Tema / Relatoria
+                    </div>
+                    <div class="col-6">
+                        <i class="fa fa-lg fa-flag"></i> Country 1<br />
+                        <i class="fa fa-lg fa-flag-o"></i> Country 2<br />
+                        <i class="fa fa-lg fa-flag-checkered"></i> Country 3<br />
                     </div>
                 </div>
-                <a href="#!">
-                    <div class="mask rgba-white-slight"></div>
-                </a>
+
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Add comment...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button"><i class="fa fa-lg fa-plus-square"></i></button>
+                    </span>
+                </div>
             </div>
-            <!--Card image-->
-            <!--Card content-->
-            <div class="card-body">
-
-                <!--Title-->
-                <h4 class="card-title">Card title</h4>
-
-                <!--Text-->
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-            </div>
-            <!--Card content-->
-
         </div>
-        <!--Card-->
-        <!--Card-->
-        <div class="card mb-4">
-
-            <!--Card image-->
-            <div class="view overlay">
-                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg" alt="Card image cap">
-                <a href="#!">
-                    <div class="mask rgba-white-slight"></div>
-                </a>
-            </div>
-            <!--Card image-->
-            <!--Card content-->
-            <div class="card-body">
-                <!--Title-->
-                <h4 class="card-title">Card title</h4>
-
-                <!--Text-->
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-            </div>
-            <!--Card content-->
-
-        </div>
-        <!--Card-->
-        <!--Card-->
-        <div class="card mb-4">
-
-            <!--Card image-->
-            <div class="view overlay">
-                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg" alt="Card image cap">
-                <a href="#!">
-                    <div class="mask rgba-white-slight"></div>
-                </a>
-            </div>
-            <!--Card image-->
-            <!--Card content-->
-            <div class="card-body">
-                <!--Title-->
-                <h4 class="card-title">Card title</h4>
-
-                <!--Text-->
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-            </div>
-            <!--Card content-->
-
-        </div>
-        <!--Card-->
-
+        <br/>
     </div>
-    <!--Card group-->
+</div>

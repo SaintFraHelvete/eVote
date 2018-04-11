@@ -31,11 +31,21 @@
                     </span>
                 </a>
             </li>
-            <!-- Dropdown -->
+            <!-- Dropdown Profile -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Profile</a>
                 <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                     @Html.Partial("_LoginPartial")
+                </div>
+            </li>
+            <!-- Dropdown Language-->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-globe"></i> EN</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a href="#">English</a><br/>
+                    <a href="#">Español</a><br />
+                    <a href="#">Português</a><br />
+                    <a href="#">Français</a>
                 </div>
             </li>
         </ul>

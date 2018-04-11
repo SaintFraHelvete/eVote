@@ -13,6 +13,7 @@
     </ul>*@
         
         @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        <br/>
         <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
     }
 }
@@ -24,5 +25,6 @@ else
     </ul>*@
 
     @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+    <br />
     @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
 }
