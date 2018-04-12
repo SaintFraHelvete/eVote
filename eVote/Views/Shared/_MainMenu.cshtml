@@ -3,9 +3,9 @@
     <!--Card-->
     <div class="card mb-4">
         <!--Card image-->
-        <div class="view overlay">
+        <div class="view overlay zoom">
             <img class="img-fluid" src="~/Content/img/pending.png" alt="My Pending">
-            <a href="#!">
+            <a href="@Url.Action("Pending", "Processes")">
                 <div class="mask rgba-white-slight"></div>
             </a>
         </div>
@@ -21,9 +21,9 @@
     <!--Card-->
     <div class="card mb-4">
         <!--Card image-->
-        <div class="view overlay">
+        <div class="view overlay zoom">
             <img class="img-fluid" src="~/Content/img/current.png" alt="On-going">
-            <a href="#!">
+            <a href="@Url.Action("InProgress", "Processes")">
                 <div class="mask rgba-white-slight"></div>
             </a>
         </div>
@@ -39,9 +39,9 @@
     <!--Card-->
     <div class="card mb-4">
         <!--Card image-->
-        <div class="view overlay">
+        <div class="view overlay zoom">
             <img class="img-fluid" src="~/Content/img/archive.png" alt="Closed">
-            <a href="#!">
+            <a href="@Url.Action("Closed", "Processes")">
                 <div class="mask rgba-white-slight"></div>
             </a>
         </div>
@@ -56,3 +56,4 @@
     <!--Card-->
 </div>
 <!--Card group-->
+

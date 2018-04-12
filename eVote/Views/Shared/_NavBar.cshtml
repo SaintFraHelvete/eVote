@@ -1,57 +1,60 @@
 ﻿<!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+<nav class="navbar navbar-expand-lg navbar-light">
     <!-- Navbar brand -->
-    @Html.ActionLink("CIDH eVote", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+        <img src="~/Content/img/oas-logo-en.gif" height="70" class="d-inline-block align-top" alt="">
+        @*<span class="text-success">e</span><span class="text-primary">Vote</span>*@
+    </a>
 
-    <!-- Collapse button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
-            aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="basicExampleNav">
-        
-        <!-- Search -->
-        <form class="form-inline" >
-            <div class="md-form mt-0" >
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            </div>
-        </form>
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="basicExampleNav">
 
-        <!-- Links -->
-        <ul class="navbar-nav ml-auto">
-            @*<li class="nav-item">@Html.ActionLink("Notifications", "Index", "Notifications", null, new { @class = "nav-link" })</li>*@
-
-            <li class="nav-item">
-                <a href="@Url.Action("Notifications", "Home")" class="nav-link">
-                    <i class="fa fa-bell"></i>
-                    <span>
-                        <strong>Notifications</strong>
-                    </span>
-                </a>
-            </li>
-            <!-- Dropdown Profile -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Profile</a>
-                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    @Html.Partial("_LoginPartial")
+            <!-- Search -->
+            <form class="form-inline" style="width:100%;">
+                <div class="md-form mt-0" style="width:100%;">
+                    <input class="form-control mr-sm-2" style="width:100%;" type="text" placeholder="Search" aria-label="Search">
                 </div>
-            </li>
-            <!-- Dropdown Language-->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-globe"></i> EN</a>
-                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a href="#">English</a><br/>
-                    <a href="#">Español</a><br />
-                    <a href="#">Português</a><br />
-                    <a href="#">Français</a>
-                </div>
-            </li>
-        </ul>
-        
-    </div>
-    <!-- Collapsible content -->
+            </form>
+
+            <!-- Links -->
+            <ul class="navbar-nav ml-auto">
+                @*<li class="nav-item">@Html.ActionLink("Notifications", "Index", "Notifications", null, new { @class = "nav-link" })</li>*@
+
+                <li class="nav-item">
+                    <a href="@Url.Action("Notifications", "Home")" class="nav-link">
+                        <i class="fa fa-bell"></i>
+                        <span>
+                            <strong>Notifications</strong>
+                        </span>
+                    </a>
+                </li>
+                <!-- Dropdown Profile -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Profile</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </li>
+                <!-- Dropdown Language-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-globe"></i> EN</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a href="#">English</a><br />
+                        <a href="#">Español</a><br />
+                        <a href="#">Português</a><br />
+                        <a href="#">Français</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <!-- Collapsible content -->
 
 </nav>
 <!--/.Navbar-->
