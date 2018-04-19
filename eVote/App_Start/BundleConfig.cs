@@ -27,7 +27,7 @@ namespace eVote
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/font-awesome.min.css",
                 "~/Content/bootstrap.min.css",
-                "~/Content/mdb.min.css", 
+                "~/Content/mdb.css", 
                 "~/Content/site.css"));
         }
     }

@@ -1,8 +1,32 @@
-﻿<div class="row">
+﻿<div class="row pt-2">
     <div class="col">
-        <a href="" alt="Pendings">
-            <img src="" alt="Pendings" />
+        <a href="@Url.Action("Pending", "Processes")" alt="Pendings">
+            <div class="view overlay zoom hoverable rounded z-depth-1">
+                <img src="~/Content/img/pending.png" class="img-fluid img-menu rounded" alt="Pending">
+                <div class="mask flex-center waves-effect waves-light rgba-black-strong rounded">
+                    <h2 class="white-text">Pendings</h2>
+                </div>
+            </div>
         </a>
     </div>
-    
+    <div class="col">
+        <a href="@Url.Action("InProgress", "Processes")" alt="Pendings">
+            <div class="view overlay zoom hoverable rounded z-depth-1">
+                <img src="~/Content/img/current.png" class="img-fluid img-menu rounded" alt="Pending">
+                <div class="mask flex-center waves-effect waves-light rgba-black-strong rounded">
+                    <h2 class="white-text">In process</h2>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col">
+        <a href="@Url.Action("Closed", "Processes")" alt="Pendings">
+            <div class="view overlay zoom hoverable rounded z-depth-1">
+                <img src="~/Content/img/archive.png" class="img-fluid img-menu rounded" alt="Pending">
+                <div class="mask flex-center waves-effect waves-light rgba-black-strong rounded">
+                    <h2 class="white-text">Closed</h2>
+                </div>
+            </div>
+        </a>
+    </div>
 </div>

@@ -9,9 +9,13 @@ namespace org.oas.cidh.eVote.Controllers
     public class LoginController : Controller
     {
         // GET: Login
-        public ActionResult Index()
+        public ActionResult Index(string email, string password)
         {
+            if(!string.IsNullOrEmpty(email))
+                return RedirectToAction("Index", "Home");
+
             return View();
         }
+        
     }
 }

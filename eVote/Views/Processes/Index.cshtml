@@ -1,0 +1,77 @@
+﻿@model org.oas.cidh.eVote.ViewModels.VotingProcessesViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs nav-justified  light-blue darken-3 mx-0" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#pending" role="tab"><i class="fa fa-calendar-check-o"></i> Pending</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#inProgress" role="tab"><i class="fa fa-edit"></i> In Progress</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#closed" role="tab"><i class="fa  fa-window-close-o"></i> Closed</a>
+    </li>
+</ul>
+    
+<div class="container">
+    <!-- Tab panels -->
+    <div class="tab-content">
+        <!--Pending-->
+        <div class="tab-pane fade in show active" id="pending" role="tabpanel">
+            <h1 class="card-title pt-5 font-bold"><strong>My Pendings</strong></h1> @*flex-center*@
+            <div class="white z-depth-2">
+                <!--Table-->
+                <table class="table table-hover table-responsive" style="width:100%;">
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                            <th class="text-center"><strong>Country</strong></th>
+                            <th><strong>Category</strong></th>
+                            <th><strong>Tema / Relatoria</strong></th>
+                            <th><strong>PC / MC</strong></th>
+                            <th><strong>Start Date</strong> </th>
+                            <th><strong>Deadline</strong></th>
+                            <th><strong>Votes Collected</strong></th>
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+                    <!--Table body-->
+                    <tbody>
+                        @foreach (var p in Model.VotingProcesses)
+                        {
+                        <tr>
+                            <td class="text-center"><img src="@p.Countries.FirstOrDefault().ImgURL"/></td>
+                            <td>@p.Category.Name</td>
+                            <td>@p.Subject.Name</td>
+                            <td>@p.CaseId</td>
+                            <td>@p.StartDate.ToShortDateString()</td>
+                            <td>@p.EndDate.ToShortDateString()</td>
+                            <td>JO, FE</td>
+                        </tr>
+                        }
+                    </tbody>
+                    <!--Table body-->
+
+                </table>
+                <!--Table-->
+            </div>
+        </div>
+
+        <!--In Progress-->
+        <div class="tab-pane fade" id="inProgress" role="tabpanel">
+            <h1 class="card-title pt-5 font-bold"><strong>My Pendings</strong></h1> @*flex-center*@
+            @Html.Partial("_NewsFeed")
+        </div>
+
+        <!--Closed-->
+        <div class="tab-pane fade" id="closed" role="tabpanel">
+            <h1 class="card-title pt-5 font-bold"><strong>My Pendings</strong></h1> @*flex-center*@
+            @Html.Partial("_NewsFeed")
+        </div>
+    </div>
+</div>

@@ -1,8 +1,50 @@
-﻿
+﻿@model org.oas.cidh.eVote.ViewModels.VotingProcessesViewModel
+
 @{
     ViewBag.Title = "Pending";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Pending</h2>
+<h2>My Pendings</h2>
+<div class="row pb-2">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-1">
+                        <span class="badge badge-pill green">New process</span>
+                    </div>
+                    <div class="col-10">
+                        <a href="#"><h4 class="card-title">Name of voting process</h4></a>
+                    </div>
+                    <div class="col-1">
+                        <span class="badge badge-primary pull-right">Vote until 01/01/2018</span>
+                    </div>
+                </div>
+
+                <p class="card-text">This is a comment that was added when creating a new voting process.</p>
+
+                <div class="row pb-2">
+                    <div class="col-6">
+                        PC/MC<br />
+                        Category<br />
+                        Tema / Relatoria
+                    </div>
+                    <div class="col-6">
+                        <i class="fa fa-lg fa-flag"></i> Country 1<br />
+                        <i class="fa fa-lg fa-flag-o"></i> Country 2<br />
+                        <i class="fa fa-lg fa-flag-checkered"></i> Country 3<br />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Add comment...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button"><i class="fa fa-lg fa-plus-square"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
