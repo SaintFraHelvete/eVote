@@ -1,8 +1,87 @@
-﻿
+﻿@model org.oas.cidh.eVote.Models.VoteProcess
+
 @{
     ViewBag.Title = "Vote";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Vote</h2>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs nav-justified  light-blue darken-3 mx-0" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Index", "Processes")"><i class="fa fa-calendar-check-o"></i> Pending</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa fa-edit"></i> In Progress</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa  fa-window-close-o"></i> Closed</a>
+    </li>
+</ul>
 
+<div class="container">
+    <div class="tab-content">
+        <div role="tabpanel">
+
+            <h1 class="card-title pt-5 font-bold"><strong>Model.Category.Name</strong></h1> @*flex-center*@
+
+            <!-- Vote Now -->
+            <div class="white z-depth-2 mb-4">
+                <div class="card">
+                    <div class="card-body">
+
+                        <p class="card-text">This is a comment that was added when creating a new voting process.</p>
+
+                        <div class="row pb-2">
+                            <div class="col-6">
+                                PC/MC<br />
+                                Category<br />
+                                Tema / Relatoria
+                            </div>
+                            <div class="col-6">
+                                <img src="~/Content/img/flags/CB.gif" /> Country 1<br />
+                                <img src="~/Content/img/flags/NI.gif" /> Country 2<br />
+                                <img src="~/Content/img/flags/GR.gif" /> Country 3<br />
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col">
+                                <h4 class="flex-center"><strong>Vote</strong></h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="pull-right">
+                                    <a class="btn-floating btn-lg blue-gradient"><i class="fa fa-check"></i></a>
+                                    <br />
+                                    <strong>Approve</strong>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="pull-left">
+                                    <a class="btn-floating btn-lg purple-gradient"><i class="fa fa-close"></i></a>
+                                    <br/>
+                                    <strong>Dissapprove</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group my-4">
+                                    <img src="~/Content/img/comm1.png" alt="user" class="img-fluid avatar rounded-circle z-depth-2" style="max-width: 100px;">
+                                    &nbsp;&nbsp;
+                                    <input type="text" class="form-control" placeholder="Add comment...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary pull-right" type="button"><i class="fa fa-lg fa-check"></i> Submit</button>
+
+                    </div>
+                </div>
+                
+            </div>
+                    
+        </div>
+    </div>
+</div>

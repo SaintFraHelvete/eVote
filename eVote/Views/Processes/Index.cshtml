@@ -26,10 +26,12 @@
             <h1 class="card-title pt-5 font-bold"><strong>My Pendings</strong></h1> @*flex-center*@
             <div class="white z-depth-2">
                 <!--Table-->
-                <table class="table table-hover table-responsive" style="width:100%;">
+                <table class="table table-hover">
+                    @*table-responsive*@
                     <!--Table head-->
                     <thead>
                         <tr>
+                            @*<th></th>*@
                             <th class="text-center"><strong>Country</strong></th>
                             <th><strong>Category</strong></th>
                             <th><strong>Tema / Relatoria</strong></th>
@@ -44,15 +46,19 @@
                     <tbody>
                         @foreach (var p in Model.VotingProcesses)
                         {
-                        <tr>
-                            <td class="text-center"><img src="@p.Countries.FirstOrDefault().ImgURL"/></td>
-                            <td>@p.Category.Name</td>
-                            <td>@p.Subject.Name</td>
-                            <td>@p.CaseId</td>
-                            <td>@p.StartDate.ToShortDateString()</td>
-                            <td>@p.EndDate.ToShortDateString()</td>
-                            <td>JO, FE</td>
-                        </tr>
+                            if (p.StatusId == 1)
+                            {
+                                <tr onclick="window.location='@Url.Action("Details", "Processes", new { id = p.Id })'">
+                                    @*<td class="text-center red-text"><i class="fa fa-exclamation" aria-hidden="true"></i></td>*@
+                                    <td class="text-center"><img src="@p.Countries.FirstOrDefault().ImgURL" /></td>
+                                    <td>@p.Category.Name</td>
+                                    <td>@p.Subject.Name</td>
+                                    <td>@p.CaseId</td>
+                                    <td>@p.StartDate.ToShortDateString()</td>
+                                    <td>@p.EndDate.ToShortDateString()</td>
+                                    <td>JO, FE</td>
+                                </tr>
+                            }
                         }
                     </tbody>
                     <!--Table body-->
@@ -64,14 +70,100 @@
 
         <!--In Progress-->
         <div class="tab-pane fade" id="inProgress" role="tabpanel">
-            <h1 class="card-title pt-5 font-bold"><strong>My Pendings</strong></h1> @*flex-center*@
-            @Html.Partial("_NewsFeed")
+            <h1 class="card-title pt-5 font-bold"><strong>In Progress</strong></h1> @*flex-center*@
+            <div class="white z-depth-2">
+                <!--Table-->
+                <table class="table table-hover">
+                    @*table-responsive*@
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                            @*<th></th>*@
+                            <th class="text-center"><strong>Country</strong></th>
+                            <th><strong>Category</strong></th>
+                            <th><strong>Tema / Relatoria</strong></th>
+                            <th><strong>PC / MC</strong></th>
+                            <th><strong>Start Date</strong> </th>
+                            <th><strong>Deadline</strong></th>
+                            <th><strong>Votes Collected</strong></th>
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+                    <!--Table body-->
+                    <tbody>
+                        @foreach (var p in Model.VotingProcesses)
+                        {
+                            if (p.StatusId == 2)
+                            {
+                                <tr onclick="window.location='@Url.Action("Details", "Processes", new { id = p.Id })'">
+                                    @*<td class="text-center red-text"><i class="fa fa-exclamation" aria-hidden="true"></i></td>*@
+                                    <td class="text-center"><img src="@p.Countries.FirstOrDefault().ImgURL" /></td>
+                                    <td>@p.Category.Name</td>
+                                    <td>@p.Subject.Name</td>
+                                    <td>@p.CaseId</td>
+                                    <td>@p.StartDate.ToShortDateString()</td>
+                                    <td>@p.EndDate.ToShortDateString()</td>
+                                    <td>JO, FE</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                    <!--Table body-->
+
+                </table>
+                <!--Table-->
+            </div>
         </div>
 
         <!--Closed-->
         <div class="tab-pane fade" id="closed" role="tabpanel">
-            <h1 class="card-title pt-5 font-bold"><strong>My Pendings</strong></h1> @*flex-center*@
-            @Html.Partial("_NewsFeed")
+            <h1 class="card-title pt-5 font-bold"><strong>Closed</strong></h1> @*flex-center*@
+            <div class="white z-depth-2">
+                <!--Table-->
+                <table class="table table-hover">
+                    @*table-responsive*@
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                            @*<th></th>*@
+                            <th class="text-center"><strong>Country</strong></th>
+                            <th><strong>Category</strong></th>
+                            <th><strong>Tema / Relatoria</strong></th>
+                            <th><strong>PC / MC</strong></th>
+                            <th><strong>Start Date</strong> </th>
+                            <th><strong>Deadline</strong></th>
+                            <th><strong>Votes Collected</strong></th>
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+                    <!--Table body-->
+                    <tbody>
+                        @foreach (var p in Model.VotingProcesses)
+                        {
+                            if (p.StatusId == 3)
+                            {
+                                <tr onclick="window.location='@Url.Action("Closed", "Processes", new { id = p.Id })'">
+                                    @*<td class="text-center red-text"><i class="fa fa-exclamation" aria-hidden="true"></i></td>*@
+                                    <td class="text-center"><img src="@p.Countries.FirstOrDefault().ImgURL" /></td>
+                                    <td>@p.Category.Name</td>
+                                    <td>@p.Subject.Name</td>
+                                    <td>@p.CaseId</td>
+                                    <td>@p.StartDate.ToShortDateString()</td>
+                                    <td>@p.EndDate.ToShortDateString()</td>
+                                    <td>JO, FE</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                    <!--Table body-->
+
+                </table>
+                <!--Table-->
+            </div>
         </div>
     </div>
+    
+    <br/>
+
+    @Html.Partial("_NewsFeed")
 </div>
