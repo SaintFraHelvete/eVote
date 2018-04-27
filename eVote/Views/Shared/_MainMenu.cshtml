@@ -1,44 +1,60 @@
-﻿<h1 class="card-title py-5 font-bold flex-center"><strong>IACHR eVote System</strong></h1>
-<div class="card-deck">
-    <div class="card mb-4">
-        <div class="view overlay zoom hoverable z-depth-1">
-            <img class="img-fluid" src="~/Content/img/pending.png" alt="My Pending">
-            <a href="@Url.Action("Index", "Processes")">
-                <div class="mask flex-center waves-effect waves-light rgba-black-strong rounded">
-                    <h2 class="white-text">Processes</h2>
-                </div>
-            </a>
-        </div>
-        <a href="@Url.Action("Index", "Processes")" class="btn-floating btn-action ml-auto mr-4 red lighten"><span>3</span></a>
-        <div class="card-body">
-            <h4 class="card-title">Pending</h4>
+﻿<div class="row pt-2">
+    <div class="col">
+        <div class="pull-right"><strong><small> Welcome, Commisioner 1 </small></strong> <img alt="commissioner" src="~/Content/img/comm1.png" class="img-thumbnail rounded-circle" style="max-width:50px;" /> </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <h1 class="card-title py-5 font-bold flex-center"><strong>IACHR eVote System</strong></h1>
+    </div>
+</div>
+
+<div class="row"> @*card-deck*@
+    <div class="col-4">
+        <div class="card">
+            <div class="view overlay zoom hoverable z-depth-1">
+                <img class="img-fluid" src="~/Content/img/pending.png" alt="My Pending">
+                <a href="@Url.Action("Index", "Processes")">
+                    <div class="mask flex-center waves-effect waves-light rgba-black-strong rounded">
+                        <h2 class="white-text">Processes</h2>
+                    </div>
+                </a>
+            </div>
+            <a href="@Url.Action("Index", "Processes")" class="btn-floating btn-action ml-auto mr-4 red lighten"><span>3</span></a>
+            <div class="card-body">
+                <h4 class="card-title">Pending</h4>
+            </div>
         </div>
     </div>
-    <div class="card mb-4">
-        <div class="view overlay zoom hoverable z-depth-1">
-            <img class="img-fluid" src="~/Content/img/current.png" alt="On-going">
-            <a href="@Url.Action("Index", "Processes")">
-                <div class="mask flex-center waves-effect waves-light rgba-black-strong rounded">
-                    <h2 class="white-text">In progress</h2>
-                </div>
-            </a>
-        </div>
-        <a href="@Url.Action("Index", "Processes")" class="btn-floating btn-action ml-auto mr-4 red lighten"><span>5</span></a>
-        <div class="card-body">
-            <h4 class="card-title">In progress</h4>
+    <div class="col-4">
+        <div class="card">
+            <div class="view overlay zoom hoverable z-depth-1">
+                <img class="img-fluid" src="~/Content/img/current.png" alt="On-going">
+                <a href="@Url.Action("Index", "Processes")">
+                    <div class="mask flex-center waves-effect waves-light rgba-black-strong rounded">
+                        <h2 class="white-text">In progress</h2>
+                    </div>
+                </a>
+            </div>
+            <a href="@Url.Action("Index", "Processes")" class="btn-floating btn-action ml-auto mr-4 red lighten"><span>5</span></a>
+            <div class="card-body">
+                <h4 class="card-title">In progress</h4>
+            </div>
         </div>
     </div>
-    <div class="card mb-4">
-        <div class="view overlay zoom hoverable z-depth-1">
-            <img class="img-fluid" src="~/Content/img/archive.png" alt="Closed">
-            <a href="@Url.Action("Index", "Processes")">
-                <div class="mask flex-center waves-effect waves-light rgba-black-strong rounded">
-                    <h2 class="white-text">Archive</h2>
-                </div>
-            </a>
-        </div>
-        <div class="card-body">
-            <h4 class="card-title">Archive</h4>
+    <div class="col-4">
+        <div class="card">
+            <div class="view overlay zoom hoverable z-depth-1">
+                <img class="img-fluid" src="~/Content/img/archive.png" alt="Closed">
+                <a href="@Url.Action("Index", "Processes")">
+                    <div class="mask flex-center waves-effect waves-light rgba-black-strong rounded">
+                        <h2 class="white-text">Archive</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Archive</h4>
+            </div>
         </div>
     </div>
 </div>

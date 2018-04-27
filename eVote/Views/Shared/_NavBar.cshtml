@@ -48,12 +48,88 @@
             </ul>
             <ul class="navbar-nav flex-row ml-auto">
                 <li class="nav-item">
-                    <form class="form-inline">
-                        <div class="md-form mt-0">
+                    @*<form class="form-inline">*@
+                        @*<div class="md-form form-lg mt-0">
                             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                             <i class="fa fa-search amber-text"></i>
+                        </div>*@
+                        <div class="input-group" id="adv-search">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search..." aria-label="Search">
+                            <div class="input-group-btn" style="position:unset">
+                                <div class="btn-group" role="group" style="position:unset">
+                                    <div class="dropdown dropdown-lg">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-search amber-text"></i></button>
+                                        <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                            <form class="form-horizontal" role="form">
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="form-group">
+                                                                <label for="ddbCategories">Category</label>
+                                                                <select class="form-control" id="ddbCategories">
+                                                                    <option value="0">Select category...</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5">5</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <label for="ddbSubject">Subject</label>
+                                                            <select class="form-control" id="ddbSubject">
+                                                                <option value="0">Select subject...</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                    
+                                                    
+                                                <div class="form-group">
+                                                    <label for="contain">Author</label>
+                                                    <input class="form-control" type="text" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="contain">Contains the words</label>
+                                                    <input class="form-control" type="text" />
+                                                </div>
+                                                @*<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>*@
+                                            </form>
+                                        </div>
+                                    </div>
+                                    @*<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>*@
+                                </div>
+                            </div>
                         </div>
-                    </form>
+                    @*</form>*@
                 </li>
             </ul>
         </div>

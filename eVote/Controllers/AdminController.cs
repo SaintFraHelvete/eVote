@@ -13,5 +13,10 @@ namespace org.oas.cidh.eVote.Controllers
         {
             return View();
         }
+
+        public ActionResult New()
+        {
+            return View();
+        }
     }
 }
