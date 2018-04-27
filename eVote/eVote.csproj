@@ -422,6 +422,7 @@
     <Content Include="Views\Shared\_NewsFeed.cshtml" />
     <Content Include="Views\Processes\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\_WelcomeUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

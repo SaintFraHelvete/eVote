@@ -10,9 +10,12 @@
 
 </head>
 <body class="grey lighten-2">
-    
+
     @Html.Partial("_NavBar")
-    @*@Html.Partial("_PageHeader")*@
+    <div class="container">
+        @Html.Partial("_WelcomeUser")
+    </div>
+
 
     @RenderBody()
 
