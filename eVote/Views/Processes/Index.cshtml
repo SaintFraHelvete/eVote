@@ -17,8 +17,9 @@
         <a class="nav-link" data-toggle="tab" href="#closed" role="tab"><i class="fa  fa-window-close-o"></i> Closed</a>
     </li>
 </ul>
-    
+   
 <div class="container">
+    <div class="pull-right pt-4"><strong><small> Welcome, Commisioner 1 </small></strong> <img alt="commissioner" src="~/Content/img/comm1.png" class="img-thumbnail rounded-circle" style="max-width:50px;" /> </div>
     <!-- Tab panels -->
     <div class="tab-content">
         <!--Pending-->
@@ -125,7 +126,7 @@
                     <!--Table head-->
                     <thead>
                         <tr>
-                            @*<th></th>*@
+                            <th></th>
                             <th class="text-center"><strong>Country</strong></th>
                             <th><strong>Category</strong></th>
                             <th><strong>Tema / Relatoria</strong></th>
@@ -143,7 +144,7 @@
                             if (p.StatusId == 3)
                             {
                                 <tr onclick="window.location='@Url.Action("Closed", "Processes", new { id = p.Id })'">
-                                    @*<td class="text-center red-text"><i class="fa fa-exclamation" aria-hidden="true"></i></td>*@
+                                    <td class="text-center red-text"><i class="fa fa-exclamation" aria-hidden="true"></i></td>
                                     <td class="text-center"><img src="@p.Countries.FirstOrDefault().ImgURL" /></td>
                                     <td>@p.Category.Name</td>
                                     <td>@p.Subject.Name</td>

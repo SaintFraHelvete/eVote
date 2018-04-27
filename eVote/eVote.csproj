@@ -220,6 +220,8 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\img\848347_speaker_512x512.png" />
+    <Content Include="Content\img\access.png" />
+    <Content Include="Content\img\alerts.jpeg" />
     <Content Include="Content\img\archive.png" />
     <Content Include="Content\img\calendar-flat.png" />
     <Content Include="Content\img\CIDHMainPage.png" />
@@ -270,6 +272,7 @@
     <Content Include="Content\img\header-gral-fr.png" />
     <Content Include="Content\img\header-gral-pt.png" />
     <Content Include="Content\img\message.png" />
+    <Content Include="Content\img\new.png" />
     <Content Include="Content\img\oas-logo-en.gif" />
     <Content Include="Content\img\oas-logo-es.gif" />
     <Content Include="Content\img\oas-logo-fr.gif" />
@@ -279,6 +282,7 @@
     <Content Include="Content\img\report_icon.png" />
     <Content Include="Content\img\reunion-1.png" />
     <Content Include="Content\img\rocket-big-grey-bg%402x.png" />
+    <Content Include="Content\img\settings.png" />
     <Content Include="Content\img\todo.png" />
     <Content Include="Content\img\Logo-EN.png" />
     <Content Include="Content\mdb.css" />
@@ -423,6 +427,9 @@
     <Content Include="Views\Processes\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_WelcomeUser.cshtml" />
+    <Content Include="Views\Shared\_AdminMenu.cshtml" />
+    <Content Include="Views\Shared\_Wizard.cshtml" />
+    <Content Include="Views\Admin\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
