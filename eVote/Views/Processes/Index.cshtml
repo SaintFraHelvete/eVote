@@ -14,17 +14,19 @@
         <a class="nav-link" data-toggle="tab" href="#inProgress" role="tab"><i class="fa fa-edit"></i> In Progress</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#closed" role="tab"><i class="fa  fa-window-close-o"></i> Closed</a>
+        <a class="nav-link" data-toggle="tab" href="#closed" role="tab"><i class="fa fa-close"></i> Closed</a>
     </li>
 </ul>
-   
+
 <div class="container">
-    <div class="pull-right pt-4"><strong><small> Welcome, Commisioner 1 </small></strong> <img alt="commissioner" src="~/Content/img/comm1.png" class="img-thumbnail rounded-circle" style="max-width:50px;" /> </div>
+    @*<div class="mt-4">
+        @Html.Partial("_WelcomeUser")
+    </div>*@
     <!-- Tab panels -->
     <div class="tab-content">
         <!--Pending-->
         <div class="tab-pane fade in show active" id="pending" role="tabpanel">
-            <h1 class="card-title pt-5 font-bold"><strong>My Pendings</strong></h1> @*flex-center*@
+            <h1 class="card-title pt-5 font-bold"><strong>Pendings</strong></h1> @*flex-center*@
             <div class="white z-depth-2">
                 <!--Table-->
                 <table class="table table-hover">
@@ -166,5 +168,7 @@
     
     <br/>
 
-    @Html.Partial("_NewsFeed")
+    @*@Html.Partial("_NewsFeed")*@
+    @*@Html.Partial("_Timeline")*@
+    @Html.Partial("_Spotlight")
 </div>

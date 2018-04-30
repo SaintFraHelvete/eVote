@@ -195,6 +195,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NotificationsController.cs" />
     <Compile Include="Controllers\ProcessesController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -423,13 +424,16 @@
     <Content Include="Views\Processes\Docs.cshtml" />
     <Content Include="Views\Shared\_PageHeader.cshtml" />
     <Content Include="Views\Shared\_MenuFluidBar.cshtml" />
-    <Content Include="Views\Shared\_NewsFeed.cshtml" />
+    <Content Include="Views\Shared\_Newsfeed.cshtml" />
     <Content Include="Views\Processes\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\_WelcomeUser.cshtml" />
     <Content Include="Views\Shared\_AdminMenu.cshtml" />
     <Content Include="Views\Shared\_Wizard.cshtml" />
     <Content Include="Views\Admin\New.cshtml" />
+    <Content Include="Views\Shared\_Timeline.cshtml" />
+    <Content Include="Views\Shared\_Spotlight.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -14,7 +14,7 @@
         <a class="nav-link" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa fa-edit"></i> In Progress</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa  fa-window-close-o"></i> Closed</a>
+        <a class="nav-link" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa fa-close"></i> Closed</a>
     </li>
 </ul>
 
@@ -37,15 +37,15 @@
                         <span class="font-weight-bold">Deadline:</span> 01/01/2018
                     </div>
                     <div class="col">
-                        <a href="@Url.Action("Vote", "Processes")" alt="Vote">
-                            <i class="fa fa-5x fa-calendar-check-o green-text pb-2" aria-hidden="true"></i><br />
-                            <span class="font-weight-bold">Vote now!</span>
-                        </a>
-                    </div>
-                    <div class="col pb-4">
                         <a href="@Url.Action("Docs", "Processes")" alt="Docs">
                             <i class="fa fa-5x fa-file blue-grey-text pb-2"></i><br />
                             <span class="font-weight-bold">Docs</span>
+                        </a>
+                    </div>
+                    <div class="col pb-4">
+                        <a href="@Url.Action("Vote", "Processes")" alt="Vote">
+                            <i class="fa fa-5x fa-calendar-check-o green-text pb-2" aria-hidden="true"></i><br />
+                            <span class="font-weight-bold">Vote now!</span>
                         </a>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                                 </tr>
                                 <tr>
                                     <td><img src="~/Content/img/flags/RD.gif" style="border-radius: 0 0 0 0;" /></td>
-                                    <td><i class="fa fa-check green-text"></i></td>
+                                    <td><i class="fa fa-envelope-open-o orange-text" aria-hidden="true"></i></td>
                                     <td>Commissioner 5</td>
                                 </tr>
                             </tbody>
@@ -93,9 +93,9 @@
                     <div class="card-body">
                         <h5 class="card-title"><strong>Progress</strong></h5><br />
                         <div class="progress" style="height: 20px">
-                            <div class="progress-bar" role="progressbar" style="width: 75%; height: 20px" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                            <div class="progress-bar" role="progressbar" style="width: 80%; height: 20px" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">4 out of 5 votes collected</div>
                         </div>
-                        <text class="pull-left">Started on: 01/01/2018</text><text class="pull-right">Ending on: 01/10/2018</text>
+                        <text class="pull-left">Start date: 01/01/2018</text><text class="pull-right">End date: 01/10/2018</text>
                         <br /><br />
                         <h5 class="card-title mt-4"><strong>Countries</strong></h5><br />
                         <div class="row">
@@ -114,9 +114,9 @@
 
             <!-- Comments -->
             <div class="white z-depth-2">
-                <div class="container">
+                <div class="container p-4 ">
                     <h2 class="pt-4 text-center">Comments <span class="badge blue">3</span></h2>
-                    <div class="row pt-4">
+                    <div class="row p-4">
                         <div class="col-2">
                             <img class="avatar rounded-circle z-depth-1-half" src="~/Content/img/comm2.png" style="max-width: 100px;" />
                         </div>
@@ -138,7 +138,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="row pt-2">
+                    <div class="row p-4">
                         <div class="col-2">
                             <img class="avatar rounded-circle z-depth-1-half" src="~/Content/img/comm1.png" style="max-width: 100px;" />
                         </div>
@@ -160,7 +160,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="row pt-2">
+                    <div class="row p-4">
                         <div class="col-2">
                             <img class="avatar rounded-circle z-depth-1-half" src="~/Content/img/comm3.png" style="max-width: 100px;" />
                         </div>
@@ -185,10 +185,10 @@
 
                     <hr />
 
-                    <section class="mb-4 mx-2">
+                    <section class="p-4">
                         <!--Leave a reply form-->
                         <div class="reply-form">
-                            <h3 class="section-heading h3 pt-5">Leave a reply </h3>
+                            <h3 class="section-heading h3 py-4">Leave a reply </h3>
                             <!--Third row-->
                             <div class="row">
                                 <!--Image column-->

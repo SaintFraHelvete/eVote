@@ -1,32 +1,49 @@
-﻿<div class="row pt-2">
-    <div class="col">
-        <a href="@Url.Action("Pending", "Processes")" alt="Pendings">
-            <div class="view overlay zoom hoverable rounded z-depth-1">
-                <img src="~/Content/img/pending.png" class="img-fluid img-menu rounded" alt="Pending">
-                <div class="mask flex-center waves-effect waves-light rgba-black-strong rounded">
-                    <h2 class="white-text">Pendings</h2>
+﻿<section class="pb-3 text-center ">
+    <div class="row">
+        <div class="col-2 offset-3 mb-4">
+            <div class="card collection-card z-depth-1-half">
+                <div class="view zoom">
+                    <img src="~/Content/img/pending.png" class="img-fluid" alt="">
+                    <div class="stripe dark">
+                        <a href="@Url.Action("Pending", "Processes")" alt="Pendings">
+                            <p>
+                                Pending
+                                <i class="fa fa-angle-right"></i>
+                            </p>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </a>
-    </div>
-    <div class="col">
-        <a href="@Url.Action("InProgress", "Processes")" alt="Pendings">
-            <div class="view overlay zoom hoverable rounded z-depth-1">
-                <img src="~/Content/img/current.png" class="img-fluid img-menu rounded" alt="Pending">
-                <div class="mask flex-center waves-effect waves-light rgba-black-strong rounded">
-                    <h2 class="white-text">In process</h2>
+        </div>
+        <div class="col-2 mb-4">
+            <div class="card collection-card z-depth-1-half">
+                <div class="view zoom">
+                    <img src="~/Content/img/current.png" class="img-fluid" alt="">
+                    <div class="stripe light">
+                        <a href="@Url.Action("Pending", "Processes")" alt="Pendings">
+                            <p>
+                                In Progress
+                                <i class="fa fa-angle-right"></i>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+           </div>
+        </div>
+        <div class="col-2 mb-4">
+            <div class="card collection-card z-depth-1-half">
+                <div class="view zoom">
+                    <img src="~/Content/img/archive.png" class="img-fluid" alt="">
+                    <div class="stripe dark">
+                        <a href="@Url.Action("Pending", "Processes")" alt="Pendings">
+                            <p>
+                                Archive
+                                <i class="fa fa-angle-right"></i>
+                            </p>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </a>
+        </div>
     </div>
-    <div class="col">
-        <a href="@Url.Action("Closed", "Processes")" alt="Pendings">
-            <div class="view overlay zoom hoverable rounded z-depth-1">
-                <img src="~/Content/img/archive.png" class="img-fluid img-menu rounded" alt="Pending">
-                <div class="mask flex-center waves-effect waves-light rgba-black-strong rounded">
-                    <h2 class="white-text">Closed</h2>
-                </div>
-            </div>
-        </a>
-    </div>
-</div>
+</section>

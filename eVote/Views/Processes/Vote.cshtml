@@ -14,7 +14,7 @@
         <a class="nav-link" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa fa-edit"></i> In Progress</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa  fa-window-close-o"></i> Closed</a>
+        <a class="nav-link" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa  fa-close"></i> Closed</a>
     </li>
 </ul>
 
@@ -22,7 +22,7 @@
     <div class="tab-content">
         <div role="tabpanel">
 
-            <h1 class="card-title pt-5 font-bold"><strong>Model.Category.Name</strong></h1> @*flex-center*@
+            <h1 class="card-title pt-5 font-bold"><strong>Admissibility report</strong></h1> @* @Model.Category.Name   flex-center*@
 
             <!-- Vote Now -->
             <div class="white z-depth-2 mb-4">
@@ -33,14 +33,14 @@
 
                         <div class="row pb-2">
                             <div class="col-6">
+                                @*Category<br />*@
+                                Tema / Relatoria<br />
                                 PC/MC<br />
-                                Category<br />
-                                Tema / Relatoria
                             </div>
                             <div class="col-6">
-                                <img src="~/Content/img/flags/CB.gif" /> Country 1<br />
-                                <img src="~/Content/img/flags/NI.gif" /> Country 2<br />
-                                <img src="~/Content/img/flags/GR.gif" /> Country 3<br />
+                                <img src="~/Content/img/flags/CB.gif" style="border-radius: 0 0 0 0;" /> Country 1<br />
+                                <img src="~/Content/img/flags/NI.gif" style="border-radius: 0 0 0 0;"/> Country 2<br />
+                                <img src="~/Content/img/flags/GR.gif" style="border-radius: 0 0 0 0;"/> Country 3<br />
                             </div>
                         </div>
                         <hr/>
@@ -65,12 +65,19 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row pt-4">
                             <div class="col">
-                                <div class="input-group my-4">
+                                @*<div class="input-group my-4">
                                     <img src="~/Content/img/comm1.png" alt="user" class="img-fluid avatar rounded-circle z-depth-2" style="max-width: 100px;">
                                     &nbsp;&nbsp;
                                     <input type="text" class="form-control" placeholder="Add comment...">
+                                </div>*@
+                                <div class="mt-1 grey lighten-4">
+                                    <!--Add comment-->
+                                    <div class="md-form mt-1 mb-1">
+                                        <textarea type="text" id="form7" class="md-textarea" style="width:100%"></textarea>
+                                        <label for="form7" class="p-2">Add comment...</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>

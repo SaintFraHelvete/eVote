@@ -26530,7 +26530,7 @@ button.toast-close-button {
 
             .mdb-feed .news .excerpt .added-text {
                 margin-bottom: .6rem;
-                max-width: 450px
+                /*max-width: 450px*/
             }
 
             .mdb-feed .news .excerpt .feed-footer .like {
