@@ -1,188 +1,336 @@
 ﻿<style>
     /*Start Wizard*/
-
-    .bootstrapWizard {
-        display: block;
-        list-style: none;
-        padding: 0;
+    .steps-form-2 {
+        display: table;
+        width: 100%;
         position: relative;
-        width: 100%
     }
 
-        .bootstrapWizard a:hover, .bootstrapWizard a:active, .bootstrapWizard a:focus {
-            text-decoration: none
+        .steps-form-2 .steps-row-2 {
+            display: table-row;
         }
 
-        .bootstrapWizard li {
-            display: block;
-            float: left;
-            width: 25%;
-            text-align: center;
-            padding-left: 0
-        }
-
-            .bootstrapWizard li:before {
-                border-top: 3px solid #55606E;
-                content: "";
-                display: block;
-                font-size: 0;
-                overflow: hidden;
-                position: relative;
-                top: 11px;
-                right: 1px;
+            .steps-form-2 .steps-row-2:before {
+                top: 14px;
+                bottom: 0;
+                position: absolute;
+                content: " ";
                 width: 100%;
-                z-index: 1
+                height: 2px;
+                background-color: #7283a7;
             }
 
-            .bootstrapWizard li:first-child:before {
-                left: 50%;
-                max-width: 50%
-            }
-
-            .bootstrapWizard li:last-child:before {
-                max-width: 50%;
-                width: 50%
-            }
-
-            .bootstrapWizard li.complete .step {
-                background: #0aa66e;
-                padding: 1px 6px;
-                border: 3px solid #55606E
-            }
-
-            .bootstrapWizard li .step i {
-                font-size: 10px;
-                font-weight: 400;
-                position: relative;
-                top: -1.5px
-            }
-
-            .bootstrapWizard li .step {
-                background: #B2B5B9;
-                color: #fff;
-                display: inline;
-                font-size: 15px;
-                font-weight: 700;
-                line-height: 12px;
-                padding: 7px 13px;
-                border: 3px solid transparent;
-                border-radius: 50%;
-                line-height: normal;
-                position: relative;
+            .steps-form-2 .steps-row-2 .steps-step-2 {
+                display: table-cell;
                 text-align: center;
-                z-index: 2;
-                transition: all .1s linear 0s
-            }
-
-            .bootstrapWizard li.active .step, .bootstrapWizard li.active.complete .step {
-                background: #0091d9;
-                color: #fff;
-                font-weight: 700;
-                padding: 7px 13px;
-                font-size: 15px;
-                border-radius: 50%;
-                border: 3px solid #55606E
-            }
-
-            .bootstrapWizard li.complete .title, .bootstrapWizard li.active .title {
-                color: #2B3D53
-            }
-
-            .bootstrapWizard li .title {
-                color: #bfbfbf;
-                display: block;
-                font-size: 13px;
-                line-height: 15px;
-                max-width: 100%;
                 position: relative;
-                table-layout: fixed;
-                text-align: center;
-                top: 20px;
-                word-wrap: break-word;
-                z-index: 104
             }
 
-    .wizard-actions {
-        display: block;
-        list-style: none;
-        padding: 0;
-        position: relative;
-        width: 100%
-    }
+                .steps-form-2 .steps-row-2 .steps-step-2 p {
+                    margin-top: 0.5rem;
+                }
 
-        .wizard-actions li {
-            display: inline
-        }
+                .steps-form-2 .steps-row-2 .steps-step-2 button[disabled] {
+                    opacity: 1 !important;
+                    filter: alpha(opacity=100) !important;
+                }
 
-    .tab-content.transparent {
-        background-color: transparent
-    }
+                .steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {
+                    width: 70px;
+                    height: 70px;
+                    border: 2px solid #59698D;
+                    background-color: white !important;
+                    color: #59698D !important;
+                    border-radius: 50%;
+                    padding: 22px 18px 15px 18px;
+                    margin-top: -22px;
+                }
 
+                    .steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {
+                        border: 2px solid #4285F4;
+                        color: #4285F4 !important;
+                        background-color: white !important;
+                    }
+
+                    .steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa {
+                        font-size: 1.7rem;
+                    }
     /*End Wizard*/
 </style>
+
+
 <div class="container">
-    <div class="row">
-        <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable mt-4">
-            <div id="wid-id-0">
-                <header role="heading">
-                    <h2>New voting process</h2>
-                </header>
-                <!-- widget div-->
-                <div role="content" class="white z-depth-2">
-                    <!-- widget content -->
-                    <div class="widget-body">
-                        <div class="row">
-                            <form id="wizard-1" novalidate="novalidate">
-                                <div id="bootstrap-wizard-1" class="col-sm-12">
-                                    <div class="form-bootstrapWizard">
-                                        <ul class="bootstrapWizard form-wizard">
-                                            <li class="active" data-target="#step1">
-                                                <a href="#tab1" data-toggle="tab"> <span class="step">1</span> <span class="title">Basic info</span> </a>
-                                            </li>
-                                            <li data-target="#step2" class="">
-                                                <a href="#tab2" data-toggle="tab"> <span class="step">2</span> <span class="title">Members</span></a>
-                                            </li>
-                                            <li data-target="#step3" class="">
-                                                <a href="#tab3" data-toggle="tab"> <span class="step">3</span> <span class="title">Docs</span> </a>
-                                            </li>
-                                            <li data-target="#step4" class="">
-                                                <a href="#tab4" data-toggle="tab"> <span class="step">4</span> <span class="title">Access</span> </a>
-                                            </li>
-                                        </ul>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="tab-content">
-                                        <div class="tab-pane" id="tab1">
-                                            <br>
-                                            <h3><strong>Step 1 </strong> - Basic Information</h3>
-
-                                        </div>
-                                        <div class="tab-pane" id="tab2">
-                                            <br>
-                                            <h3><strong>Step 2</strong> - Select Members</h3>
-
-                                        </div>
-                                        <div class="tab-pane" id="tab3">
-                                            <br>
-                                            <h3><strong>Step 3</strong> - Select Docs</h3>
-
-                                        </div>
-                                        <div class="tab-pane" id="tab4">
-                                            <br>
-                                            <h3><strong>Step 4</strong> - Setup Access</h3>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </form>
+    <h1 class="card-title pt-5 font-bold"><strong>New voting process</strong></h1>
+    <!-- Vote Now -->
+    @*<div class="white z-depth-2 mb-4">*@
+        <div class="row">
+            <div class="col">
+                <!-- Stepper -->
+                <div class="steps-form-2 my-4">
+                    <div class="steps-row-2 setup-panel-2 d-flex justify-content-between">
+                        <div class="steps-step-2">
+                            <a href="#step-1" type="button" class="btn btn-amber btn-circle-2 waves-effect ml-0" data-toggle="tooltip" data-placement="top" title="Basic Information"><i class="fa fa-folder-open-o" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="steps-step-2">
+                            <a href="#step-2" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top" title="Members"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="steps-step-2">
+                            <a href="#step-3" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect" data-toggle="tooltip" data-placement="top" title="Documents"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="steps-step-2">
+                            <a href="#step-4" type="button" class="btn btn-blue-grey btn-circle-2 waves-effect mr-0" data-toggle="tooltip" data-placement="top" title="Finish"><i class="fa fa-check" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                    <!-- end widget content -->
                 </div>
-                <!-- end widget div -->
+
+                <form role="form" action="" method="post" class="white z-depth-2 mb-4 p-4">
+                    <!-- First Step -->
+                    <div class="row setup-content-2" id="step-1">
+                        <div class="col-md-12">
+                            <h3 class="font-weight-bold pl-0 my-4"><strong>Basic Information</strong></h3>
+                            
+                            
+                            <div class="form-group md-form">
+                                <label for="txtCategory" data-error="wrong" data-success="right">Category</label>
+                                <input id="txtCategory" type="text" class="form-control validate">
+                            </div>
+                            <div class="form-group md-form">
+                                <label for="txtRapporteur" data-error="wrong" data-success="right">Rapporteur</label>
+                                <input id="txtRapporteur" type="text" class="form-control validate">
+                            </div>
+                            <div class="form-group md-form">
+                                <label for="txtRapporteur" data-error="wrong" data-success="right">PC / MC</label>
+                                <input id="txtRapporteur" type="text" class="form-control validate">
+                            </div>
+                            <div class="form-group md-form">
+                                <label for="txtCountries" data-error="wrong" data-success="right">Country</label>
+                                <input id="txtCountries" type="text" class="form-control validate">
+                            </div>
+                            <div class="form-group md-form">
+                                <label for="txtStartDate" data-error="wrong" data-success="right">Start  date</label>
+                                <input id="txtStartDate" type="text" class="form-control validate">
+                            </div>
+                            <div class="form-group md-form">
+                                <label for="txtEndDate" data-error="wrong" data-success="right">End  date</label>
+                                <input id="txtEndDate" type="text" class="form-control validate">
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" id="chkCloseAutomatically" class="form-check-input">
+                                <label for="chkCloseAutomatically" class="form-check-label">Close automatically after deadline</label>
+                            </div>
+
+                            <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Second Step -->
+                    <div class="row setup-content-2" id="step-2">
+                        <div class="col-md-12">
+                            <h3 class="font-weight-bold pl-0 my-4"><strong>Members of the process</strong></h3>
+                            
+
+                            <div class="row mb-4">
+                                <div class="col-6">
+                                    <p class="font-weight-bold">Commissioners</p>
+
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="checkbox1">
+                                                <label class="form-check-label" for="checkbox1"><img src="~/Content/img/flags/CB.gif" /> Commissioner A</label>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="checkbox2">
+                                                <label class="form-check-label" for="checkbox2"><img src="~/Content/img/flags/VE.gif" /> Commissioner B</label>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="checkbox3">
+                                                <label class="form-check-label" for="checkbox3"><img src="~/Content/img/flags/CH.gif" /> Commissioner C</label>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="checkbox4">
+                                                <label class="form-check-label" for="checkbox4"><img src="~/Content/img/flags/AR.gif" /> Commissioner D</label>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="checkbox5">
+                                                <label class="form-check-label" for="checkbox5"><img src="~/Content/img/flags/US.gif" /> Commissioner E</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                                <div class="col-6">
+                                    <p class="font-weight-bold">Internal staff</p>
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="checkbox6">
+                                                <label class="form-check-label" for="checkbox6">Staff A</label>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="checkbox7">
+                                                <label class="form-check-label" for="checkbox7">Staff B</label>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="checkbox8">
+                                                <label class="form-check-label" for="checkbox8">Staff C</label>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="checkbox9">
+                                                <label class="form-check-label" for="checkbox9">Staff D</label>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="checkbox10">
+                                                <label class="form-check-label" for="checkbox10">Staff E</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+
+                            <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
+                            <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Third Step -->
+                    <div class="row setup-content-2" id="step-3">
+                        <div class="col-md-12">
+                            <h3 class="font-weight-bold pl-0 my-4"><strong>Documents</strong></h3>
+                            
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <p class="font-weight-bold">Main document</p>
+                                    
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Document</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                        </div>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Translation</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile02">
+                                            <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <a class="btn-floating btn-primary"><i class="fa fa-plus"></i></a> Add new translation file
+
+                                </div>
+                                <div class="col">
+                                    <p class="font-weight-bold">Supporting documents</p>
+                                    <div class="list-group">
+                                        <a href="#" class="list-group-item active disabled waves-effect">
+                                            DMS Documents
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action waves-effect"><i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp; Dapibus ac facilisis in</a>
+                                        <a href="#" class="list-group-item list-group-item-action waves-effect"><i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp; Morbi leo risus</a>
+                                        <a href="#" class="list-group-item list-group-item-action waves-effect"><i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp; Porta ac consectetur ac</a>
+                                        <a href="#" class="list-group-item list-group-item-action waves-effect"><i class="fa fa-file-text-o" aria-hidden="true"></i> &nbsp; Vestibulum at eros</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
+                            <button class="btn btn-mdb-color btn-rounded nextBtn-2 float-right" type="button">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Fourth Step -->
+                    <div class="row setup-content-2" id="step-4">
+                        <div class="col-md-12">
+                            <h3 class="font-weight-bold pl-0 my-4"><strong>Finish</strong></h3>
+                            <h2 class="text-center font-weight-bold my-4">eVoting process completed!</h2>
+                            <button class="btn btn-mdb-color btn-rounded prevBtn-2 float-left" type="button">Previous</button>
+                            <button class="btn btn-success btn-rounded float-right" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <!-- end widget -->
-        </article>
-    </div>
+        </div>
+    @*</div>*@
 </div>
+
+<script type="text/javascript">
+    // Tooltips Initialization
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
+    // Steppers
+    $(document).ready(function () {
+        var navListItems = $('div.setup-panel-2 div a'),
+            allWells = $('.setup-content-2'),
+            allNextBtn = $('.nextBtn-2'),
+            allPrevBtn = $('.prevBtn-2');
+
+        allWells.hide();
+
+        navListItems.click(function (e) {
+            e.preventDefault();
+            var $target = $($(this).attr('href')),
+                $item = $(this);
+
+            if (!$item.hasClass('disabled')) {
+                navListItems.removeClass('btn-amber').addClass('btn-blue-grey');
+                $item.addClass('btn-amber');
+                allWells.hide();
+                $target.show();
+                $target.find('input:eq(0)').focus();
+            }
+        });
+
+        allPrevBtn.click(function () {
+            var curStep = $(this).closest(".setup-content-2"),
+                curStepBtn = curStep.attr("id"),
+                prevStepSteps = $('div.setup-panel-2 div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
+
+            prevStepSteps.removeAttr('disabled').trigger('click');
+        });
+
+        allNextBtn.click(function () {
+            var curStep = $(this).closest(".setup-content-2"),
+                curStepBtn = curStep.attr("id"),
+                nextStepSteps = $('div.setup-panel-2 div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                curInputs = curStep.find("input[type='text'],input[type='url']"),
+                isValid = true;
+
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].validity.valid) {
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
+
+            if (isValid)
+                nextStepSteps.removeAttr('disabled').trigger('click');
+        });
+
+        $('div.setup-panel-2 div a.btn-amber').trigger('click');
+    });
+</script>

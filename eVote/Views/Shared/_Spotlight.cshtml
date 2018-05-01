@@ -25,7 +25,7 @@
 
                         <!--Brief-->
                         <div class="brief">
-                            <a class="name">Commissioner A</a> created a new voting process X
+                            <a class="name font-weight-bold">Commissioner A</a> created a new <span class="font-weight-bold">voting process X</span> 
                             <div class="date">1 hour ago</div>
                         </div>
                         <div class="row pb-2">
@@ -81,7 +81,7 @@
 
                         <!--Brief-->
                         <div class="brief">
-                            <a class="name">Commissioner B</a> voted <span class="badge badge-success">Yes</span> on voting process X
+                            <a class="name font-weight-bold">Commissioner B</a> voted <span class="badge badge-success">Yes</span> on  <span class="font-weight-bold">voting process X</span>
                             <div class="date">2 hours ago</div>
                         </div>
                         <div class="row pb-2">
@@ -132,16 +132,51 @@
 
                         <!--Brief-->
                         <div class="brief">
-                            <a class="name">Commissioner C</a> commented on voting process X
+                            <a class="name font-weight-bold">Commissioner C</a> commented on <span class="font-weight-bold">voting process X</span>
                             <div class="date">3 hours ago</div>
+                            <span class="swith-lang pull-right "><i class="fa fa-language" aria-hidden="true"></i></span>
                         </div>
                         <div class="row pb-2">
                             <div class="col-12">
                                 <!--Added text-->
-                                <div class="added-text text-muted">
+                                
+                                @*
+                                    <div class="added-text text-muted">
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero inventore, iste quas libero eius?
                                     Vitae sint neque animi alias sunt dolor, accusantium ducimus, non placeat voluptate.
                                 </div>
+                                    *@
+
+                                <!-- Rotating card -->
+                                <div class="card-wrapper">
+                                    <div id="card-2" class="card-rotating effect__click h-100 w-100">
+
+                                        <!--Front Side-->
+                                        <div class="face front">
+                                            <!--Content-->
+                                            <div class="content">
+                                                <div class="added-text text-muted">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero inventore, iste quas libero eius?
+                                                    Vitae sint neque animi alias sunt dolor, accusantium ducimus, non placeat voluptate.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Front Side-->
+
+                                        <!--Back Side-->
+                                        <div class="face back">
+
+                                            <!-- Content -->
+                                            <div class="content">
+                                                <div class="added-text text-muted grey">
+                                                    Este es el otro lado del comentario :D
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Back Side-->
+                                    </div>
+                                </div>
+                                <!-- Rotating card -->
 
                             </div>
                         </div>
@@ -184,3 +219,11 @@
 
 </section>
 <!--Section: Social newsfeed v.2-->
+
+<script>
+$(document).ready(function(){
+    $(".swith-lang").click(function(){
+        $("#card-2").toggleClass("flipped");
+    });
+});
+</script>
