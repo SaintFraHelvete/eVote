@@ -8,13 +8,13 @@
 <!-- Nav tabs -->
 <ul class="nav nav-tabs nav-justified  light-blue darken-3 mx-0" role="tablist">
     <li class="nav-item">
-        <a class="nav-link" href="@Url.Action("Index", "Processes")"><i class="fa fa-calendar-check-o"></i> Pending</a>
+        <a class="nav-link" href="@Url.Action("Index", "Processes")"><i class="fa fa-calendar-check-o"></i> Pendientes <span class="badge badge-pill badge-danger">3</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa fa-edit"></i> In Progress</a>
+        <a class="nav-link" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa fa-edit"></i> En Progreso <span class="badge badge-pill badge-danger">5</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa  fa-close"></i> Closed</a>
+        <a class="nav-link active" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa fa-close"></i> Archivo <span class="badge badge-pill badge-danger">2</span></a>
     </li>
 </ul>
 
@@ -22,7 +22,14 @@
     <div class="tab-content">
         <div id="pending" role="tabpanel">
 
-            <h1 class="card-title pt-5 font-bold"><strong>@Model.Category.Name</strong></h1> @*flex-center*@
+            <h1 class="card-title pt-5 font-bold"><strong>@Model.Category.Name</strong>
+                @foreach (var p in Model.Countries)
+                {
+                    <span>
+                        <img src="@p.ImgURL" style="border-radius: 0 0 0 0;" alt="@p.Name" />
+                    </span>
+                }
+            </h1> @*flex-center*@
 
             <!-- Info row -->
             <div class="white z-depth-2 mb-4">
@@ -30,22 +37,22 @@
                 <div class="row text-center pt-5">
                     <div class="col">
                         <i class="fa fa-5x fa-envelope red-text pb-2"></i><br />
-                        <span class="font-weight-bold">Status:</span> Closed
+                        <span class="font-weight-bold">Estado:</span> Cerrado
                     </div>
                     <div class="col">
                         <i class="fa fa-5x fa-exclamation-triangle orange-text pb-2"></i><br />
-                        <span class="font-weight-bold">Deadline:</span> 01/01/2018
+                        <span class="font-weight-bold">Fecha de cierre:</span> 01/01/2018
                     </div>
                     
                     <div class="col pb-4">
-                        <a href="@Url.Action("Docs", "Processes")" alt="Docs">
+                        <a href="@Url.Action("Docs", "Processes")" alt="Documentos">
                             <i class="fa fa-5x fa-file blue-grey-text pb-2"></i><br />
-                            <span class="font-weight-bold">Docs</span>
+                            <span class="font-weight-bold">Documentos</span>
                         </a>
                     </div>
                     <div class="col">
                         <i class="fa fa-5x fa-check-square-o green-text pb-2" aria-hidden="true"></i><br />
-                        <span class="font-weight-bold">Approved!</span>
+                        <span class="font-weight-bold">Aprobado!</span>
                     </div>
                 </div>
             </div>
@@ -55,33 +62,33 @@
 
                 <div class="card mb-4">
                     <div class="card-body">
-                        <h5 class="card-title"><strong>Votes collected</strong></h5>
+                        <h5 class="card-title"><strong>Votos</strong></h5>
                         <table class="table table-hover card-text">
                             <tbody>
                                 <tr>
                                     <td><img src="~/Content/img/flags/GR.gif" style="border-radius: 0 0 0 0;" /></td>
                                     <td><i class="fa fa-check green-text"></i></td>
-                                    <td>Commissioner 1</td>
+                                    <td>Comisionado 1</td>
                                 </tr>
                                 <tr>
                                     <td><img src="~/Content/img/flags/CR.gif" style="border-radius: 0 0 0 0;" /></td>
                                     <td><i class="fa fa-check green-text"></i></td>
-                                    <td>Commissioner 2</td>
+                                    <td>Comisionado 2</td>
                                 </tr>
                                 <tr>
                                     <td><img src="~/Content/img/flags/GY.gif" style="border-radius: 0 0 0 0;" /></td>
                                     <td><i class="fa fa-check green-text"></i></td>
-                                    <td>Commissioner 3</td>
+                                    <td>Comisionado 3</td>
                                 </tr>
                                 <tr>
                                     <td><img src="~/Content/img/flags/NI.gif" style="border-radius: 0 0 0 0;" /></td>
                                     <td><i class="fa fa-close red-text"></i></td>
-                                    <td>Commissioner 4</td>
+                                    <td>Comisionado 4</td>
                                 </tr>
                                 <tr>
                                     <td><img src="~/Content/img/flags/RD.gif" style="border-radius: 0 0 0 0;" /></td>
                                     <td><i class="fa fa-check green-text"></i></td>
-                                    <td>Commissioner 5</td>
+                                    <td>Comisionado 5</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -90,13 +97,13 @@
 
                 <div class="card mb-4">
                     <div class="card-body">
-                        <h5 class="card-title"><strong>Progress</strong></h5><br />
+                        <h5 class="card-title"><strong>Progreso</strong></h5><br />
                         <div class="progress" style="height: 20px">
-                            <div class="progress-bar" role="progressbar" style="width: 100%; height: 20px" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                            <div class="progress-bar" role="progressbar" style="width: 100%; height: 20px" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">5 de 5 votos recolectados</div>
                         </div>
-                        <text class="pull-left">Started on: 01/01/2018</text><text class="pull-right">Ending on: 01/10/2018</text>
+                        <text class="pull-left">Fecha de inicio: 01/01/2018</text><text class="pull-right">Fecha de cierre: 01/10/2018</text>
                         <br /><br />
-                        <h5 class="card-title mt-4"><strong>Countries</strong></h5><br />
+                        <h5 class="card-title mt-4"><strong>Paises</strong></h5><br />
                         <div class="row">
                             @foreach (var p in Model.Countries)
                             {
@@ -114,14 +121,14 @@
             <!-- Comments -->
             <div class="white z-depth-2">
                 <div class="container">
-                    <h2 class="pt-4 text-center">Comments <span class="badge blue">3</span></h2>
+                    <h2 class="pt-4 text-center">Comentarios <span class="badge blue">3</span></h2>
                     <div class="row pt-4">
                         <div class="col-2">
                             <img class="avatar rounded-circle z-depth-1-half" src="~/Content/img/comm2.png" style="max-width: 100px;" />
                         </div>
                         <div class="col-10">
                             <a>
-                                <h4 class="font-weight-bold">Commissioner 2</h4>
+                                <h4 class="font-weight-bold">Comisionado 2</h4>
                             </a>
                             <div class="mt-2">
                                 <ul class="list-unstyled">
@@ -143,7 +150,7 @@
                         </div>
                         <div class="col-10">
                             <a>
-                                <h4 class="font-weight-bold">Commissioner 1</h4>
+                                <h4 class="font-weight-bold">Comisionado 1</h4>
                             </a>
                             <div class="mt-2">
                                 <ul class="list-unstyled">
@@ -165,7 +172,7 @@
                         </div>
                         <div class="col-10">
                             <a>
-                                <h4 class="font-weight-bold">Commissioner 3</h4>
+                                <h4 class="font-weight-bold">Comisionado 3</h4>
                             </a>
                             <div class="mt-2">
                                 <ul class="list-unstyled">
@@ -187,7 +194,7 @@
                     <section class="mb-4 mx-2">
                         <!--Leave a reply form-->
                         <div class="reply-form">
-                            <h3 class="section-heading h3 pt-5">Leave a reply </h3>
+                            <h3 class="section-heading h3 pt-5">Déje un comentario </h3>
                             <!--Third row-->
                             <div class="row">
                                 <!--Image column-->
@@ -203,11 +210,11 @@
                                         <div class="col-12 mt-1">
                                             <div class="form-group basic-textarea rounded-corners shadow-textarea">
 
-                                                <textarea class="form-control" id="exampleFormControlTextarea6" rows="5" placeholder="Your message..."></textarea>
+                                                <textarea class="form-control" id="exampleFormControlTextarea6" rows="5" placeholder="Su comentario..."></textarea>
                                             </div>
 
                                             <div class="text-right">
-                                                <button class="btn btn-primary btn-sm waves-effect waves-light">Submit</button>
+                                                <button class="btn btn-primary btn-sm waves-effect waves-light">Enviar</button>
                                             </div>
 
                                         </div>

@@ -8,13 +8,13 @@
 <!-- Nav tabs -->
 <ul class="nav nav-tabs nav-justified  light-blue darken-3 mx-0" role="tablist">
     <li class="nav-item">
-        <a class="nav-link active" href="@Url.Action("Index", "Processes")" ><i class="fa fa-calendar-check-o"></i> Pending</a>
+        <a class="nav-link active" href="@Url.Action("Index", "Processes")"><i class="fa fa-calendar-check-o"></i> Pendientes <span class="badge badge-pill badge-danger">3</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa fa-edit"></i> In Progress</a>
+        <a class="nav-link" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa fa-edit"></i> En Progreso <span class="badge badge-pill badge-danger">5</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa fa-close"></i> Closed</a>
+        <a class="nav-link" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa fa-close"></i> Archivo <span class="badge badge-pill badge-danger">2</span></a>
     </li>
 </ul>
 
@@ -22,7 +22,16 @@
     <div class="tab-content">
         <div id="pending" role="tabpanel">
 
-            <h1 class="card-title pt-5 font-bold"><strong>@Model.Category.Name</strong></h1> @*flex-center*@
+            <h1 class="card-title pt-5 font-bold"><strong>@Model.Category.Name</strong>
+            
+                @foreach (var p in Model.Countries)
+                {
+                    <span>
+                        <img src="@p.ImgURL" style="border-radius: 0 0 0 0;" alt="@p.Name" />
+                    </span>
+                }
+
+            </h1> @*flex-center*@
 
             <!-- Info row -->
             <div class="white z-depth-2 mb-4">
@@ -30,22 +39,22 @@
                 <div class="row text-center pt-5">
                     <div class="col">
                         <i class="fa fa-5x fa-envelope-open indigo-text pb-2"></i><br />
-                        <span class="font-weight-bold">Status:</span> Open
+                        <span class="font-weight-bold">Estado:</span> Abierto
                     </div>
                     <div class="col">
                         <i class="fa fa-5x fa-exclamation-triangle orange-text pb-2"></i><br />
-                        <span class="font-weight-bold">Deadline:</span> 01/01/2018
+                        <span class="font-weight-bold">Fecha de cierre:</span> 01/01/2018
                     </div>
                     <div class="col">
                         <a href="@Url.Action("Docs", "Processes")" alt="Docs">
                             <i class="fa fa-5x fa-file blue-grey-text pb-2"></i><br />
-                            <span class="font-weight-bold">Docs</span>
+                            <span class="font-weight-bold">Documentos</span>
                         </a>
                     </div>
                     <div class="col pb-4">
                         <a href="@Url.Action("Vote", "Processes")" alt="Vote">
                             <i class="fa fa-5x fa-calendar-check-o green-text pb-2" aria-hidden="true"></i><br />
-                            <span class="font-weight-bold">Vote now!</span>
+                            <span class="font-weight-bold">Vóte ahora!</span>
                         </a>
                     </div>
                 </div>
@@ -56,33 +65,33 @@
 
                 <div class="card mb-4">
                     <div class="card-body">
-                        <h5 class="card-title"><strong>Votes collected</strong></h5>
+                        <h5 class="card-title"><strong>Votos</strong></h5>
                         <table class="table table-hover card-text">
                             <tbody>
                                 <tr>
                                     <td><img src="~/Content/img/flags/GR.gif" style="border-radius: 0 0 0 0;" /></td>
                                     <td><i class="fa fa-check green-text"></i></td>
-                                    <td>Commissioner 1</td>
+                                    <td>Comisionado 1</td>
                                 </tr>
                                 <tr>
                                     <td><img src="~/Content/img/flags/CR.gif" style="border-radius: 0 0 0 0;" /></td>
                                     <td><i class="fa fa-close red-text"></i></td>
-                                    <td>Commissioner 2</td>
+                                    <td>Comisionado 2</td>
                                 </tr>
                                 <tr>
                                     <td><img src="~/Content/img/flags/GY.gif" style="border-radius: 0 0 0 0;" /></td>
                                     <td><i class="fa fa-check green-text"></i></td>
-                                    <td>Commissioner 3</td>
+                                    <td>Comisionado 3</td>
                                 </tr>
                                 <tr>
                                     <td><img src="~/Content/img/flags/NI.gif" style="border-radius: 0 0 0 0;" /></td>
                                     <td><i class="fa fa-close red-text"></i></td>
-                                    <td>Commissioner 4</td>
+                                    <td>Comisionado 4</td>
                                 </tr>
                                 <tr>
                                     <td><img src="~/Content/img/flags/RD.gif" style="border-radius: 0 0 0 0;" /></td>
                                     <td><i class="fa fa-envelope-open-o orange-text" aria-hidden="true"></i></td>
-                                    <td>Commissioner 5</td>
+                                    <td>Comisionado 5</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -91,13 +100,13 @@
 
                 <div class="card mb-4">
                     <div class="card-body">
-                        <h5 class="card-title"><strong>Progress</strong></h5><br />
+                        <h5 class="card-title"><strong>Progreso</strong></h5><br />
                         <div class="progress" style="height: 20px">
-                            <div class="progress-bar" role="progressbar" style="width: 80%; height: 20px" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">4 out of 5 votes collected</div>
+                            <div class="progress-bar" role="progressbar" style="width: 80%; height: 20px" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">4 de 5 votos recolectados</div>
                         </div>
-                        <text class="pull-left">Start date: 01/01/2018</text><text class="pull-right">End date: 01/10/2018</text>
+                        <text class="pull-left">Fecha de inicio: 01/01/2018</text><text class="pull-right">Fecha de cierre: 01/10/2018</text>
                         <br /><br />
-                        <h5 class="card-title mt-4"><strong>Countries</strong></h5><br />
+                        <h5 class="card-title mt-4"><strong>Paises</strong></h5><br />
                         <div class="row">
                             @foreach (var p in Model.Countries)
                             {
@@ -115,14 +124,14 @@
             <!-- Comments -->
             <div class="white z-depth-2">
                 <div class="container p-4 ">
-                    <h2 class="pt-4 text-center">Comments <span class="badge blue">3</span></h2>
+                    <h2 class="pt-4 text-center">Comentarios <span class="badge blue">3</span></h2>
                     <div class="row p-4">
                         <div class="col-2">
                             <img class="avatar rounded-circle z-depth-1-half" src="~/Content/img/comm2.png" style="max-width: 100px;" />
                         </div>
                         <div class="col-10">
                             <a>
-                                <h4 class="font-weight-bold">Commissioner 2</h4>
+                                <h4 class="font-weight-bold">Comisionado 2</h4>
                             </a>
                             <div class="mt-2">
                                 <ul class="list-unstyled">
@@ -136,6 +145,28 @@
                                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                                 nulla pariatur. Excepteur sint occaecat cupidatat non proident.
                             </p>
+
+                            <a class="comment" data-toggle="collapse" href="#collapseExample-1" aria-expanded="false" aria-controls="collapseExample-1">Responder este comentario <i class="fa fa-commenting-o" aria-hidden="true"></i></a>
+
+                            <div class="collapse" id="collapseExample-1">
+                                <div class="card card-body mt-1 grey lighten-3">
+                                    <!--Agregar un comentario-->
+                                    <div class="md-form mt-1 mb-1">
+                                        <textarea type="text" id="form7" class="md-textarea" style="width:100%"></textarea>
+                                        <label for="form7">Déje un comentario</label>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                        <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false" aria-controls="collapseExample-1">
+                                            Cancelar
+                                        </button>
+                                        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false"
+                                                aria-controls="collapseExample-1">
+                                            Responder
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <div class="row p-4">
@@ -144,7 +175,7 @@
                         </div>
                         <div class="col-10">
                             <a>
-                                <h4 class="font-weight-bold">Commissioner 1</h4>
+                                <h4 class="font-weight-bold">Comisionado 1</h4>
                             </a>
                             <div class="mt-2">
                                 <ul class="list-unstyled">
@@ -158,6 +189,28 @@
                                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                                 nulla pariatur. Excepteur sint occaecat cupidatat non proident.
                             </p>
+
+                            <a class="comment" data-toggle="collapse" href="#collapseExample-2" aria-expanded="false" aria-controls="collapseExample-2">Responder este comentario <i class="fa fa-commenting-o" aria-hidden="true"></i></a>
+
+                            <div class="collapse" id="collapseExample-2">
+                                <div class="card card-body mt-1 grey lighten-3">
+                                    <!--Agregar un comentario-->
+                                    <div class="md-form mt-1 mb-1">
+                                        <textarea type="text" id="form7" class="md-textarea" style="width:100%"></textarea>
+                                        <label for="form7">Déje un comentario</label>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                        <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false" aria-controls="collapseExample-1">
+                                            Cancelar
+                                        </button>
+                                        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false"
+                                                aria-controls="collapseExample-1">
+                                            Responder
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <div class="row p-4">
@@ -166,7 +219,7 @@
                         </div>
                         <div class="col-10">
                             <a>
-                                <h4 class="font-weight-bold">Commissioner 3</h4>
+                                <h4 class="font-weight-bold">Comisionado 3</h4>
                             </a>
                             <div class="mt-2">
                                 <ul class="list-unstyled">
@@ -180,6 +233,28 @@
                                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                                 nulla pariatur. Excepteur sint occaecat cupidatat non proident.
                             </p>
+
+                            <a class="comment" data-toggle="collapse" href="#collapseExample-3" aria-expanded="false" aria-controls="collapseExample-3">Responder este comentario <i class="fa fa-commenting-o" aria-hidden="true"></i></a>
+
+                            <div class="collapse" id="collapseExample-3">
+                                <div class="card card-body mt-1 grey lighten-3">
+                                    <!--Agregar un comentario-->
+                                    <div class="md-form mt-1 mb-1">
+                                        <textarea type="text" id="form7" class="md-textarea" style="width:100%"></textarea>
+                                        <label for="form7">Déje un comentario</label>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                        <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false" aria-controls="collapseExample-1">
+                                            Cancelar
+                                        </button>
+                                        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false"
+                                                aria-controls="collapseExample-1">
+                                            Responder
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
@@ -188,7 +263,7 @@
                     <section class="p-4">
                         <!--Leave a reply form-->
                         <div class="reply-form">
-                            <h3 class="section-heading h3 py-4">Leave a reply </h3>
+                            <h3 class="section-heading h3 py-4">Déje un comentario </h3>
                             <!--Third row-->
                             <div class="row">
                                 <!--Image column-->
@@ -203,12 +278,11 @@
 
                                         <div class="col-12 mt-1">
                                             <div class="form-group basic-textarea rounded-corners shadow-textarea">
-
-                                                <textarea class="form-control" id="exampleFormControlTextarea6" rows="5" placeholder="Your message..."></textarea>
+                                                <textarea class="form-control" id="exampleFormControlTextarea6" rows="5" placeholder="Su comentario..."></textarea>
                                             </div>
 
                                             <div class="text-right">
-                                                <button class="btn btn-primary btn-sm waves-effect waves-light">Submit</button>
+                                                <button class="btn btn-primary btn-sm waves-effect waves-light">Enviar</button>
                                             </div>
 
                                         </div>
