@@ -115,54 +115,46 @@ namespace org.oas.cidh.eVote.Controllers
         };
         #endregion
 
-        // GET: Processes
+        // GET: Processes/ 
+        // Show pending processes by default
         public ActionResult Index()
         {
             VotingProcessesViewModel viewModel = new VotingProcessesViewModel
             {
-                VotingProcesses = _processes
+                VotingProcesses = _processes.Where(x => x.StatusId == 1).ToList<VoteProcess>()
             };
 
             return View(viewModel);
         }
 
-        public ActionResult Pending()
+        // GET: Processes/InProgress
+        public ActionResult InProgress()
         {
             VotingProcessesViewModel viewModel = new VotingProcessesViewModel
             {
-                VotingProcesses = _processes
+                VotingProcesses = _processes.Where(x => x.StatusId == 2).ToList<VoteProcess>()
             };
 
             return View(viewModel);
         }
 
-        public ActionResult InProgress()
+        // GET: Processes/Closed
+        public ActionResult Closed()
         {
-            return View();
+            VotingProcessesViewModel viewModel = new VotingProcessesViewModel
+            {
+                VotingProcesses = _processes.Where(x => x.StatusId == 3).ToList<VoteProcess>()
+            };
+
+            return View(viewModel);
         }
 
+        // GET: Processes/Details/{id}
         public ActionResult Details(int id)
         {
             var process = _processes.SingleOrDefault<VoteProcess>(c => c.Id == id);
 
             return View(process);
-        }
-
-        public ActionResult Closed(int id)
-        {
-            var process = _processes.SingleOrDefault<VoteProcess>(c => c.Id == id);
-
-            return View(process);
-        }
-
-        public ActionResult Vote()
-        {
-            return View();
-        }
-
-        public ActionResult Docs()
-        {
-            return View();
         }
     }
 }

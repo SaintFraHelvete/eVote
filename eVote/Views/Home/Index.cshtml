@@ -2,10 +2,62 @@
     ViewBag.Title = "Home";
 }
 
-<div class="container">
-    
-    @*@Html.Partial("_WelcomeUser")*@
+<div class="container after-navBar mb-lg-5">
 
-    @Html.Partial("_MainMenu")
+    <h1 class="card-title py-5 font-bold flex-center"><strong>Sistema de votación electrónica</strong></h1>
 
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="view overlay zoom hoverable z-depth-1">
+                            <img class="img-fluid" src="~/Content/img/pending.png" alt="My Pending">
+                            <a href="@Url.Action("Index", "Processes")">
+                                <div class="mask flex-center waves-effect waves-light rgba-black-strong rounded">
+                                    <h2 class="white-text"></h2>
+                                </div>
+                            </a>
+                        </div>
+                        <a href="@Url.Action("Index", "Processes")" class="btn-floating btn-action ml-auto mr-4 red lighten"><span>3</span></a>
+                        <div class="card-body">
+                            <h4 class="card-title">Pendientes</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="view overlay zoom hoverable z-depth-1">
+                            <img class="img-fluid" src="~/Content/img/current.png" alt="On-going">
+                            <a href="@Url.Action("InProgress", "Processes")">
+                                <div class="mask flex-center waves-effect waves-light rgba-black-strong rounded">
+                                    <h2 class="white-text"></h2>
+                                </div>
+                            </a>
+                        </div>
+                        <a href="@Url.Action("InProgress", "Processes")" class="btn-floating btn-action ml-auto mr-4 red lighten"><span>5</span></a>
+                        <div class="card-body">
+                            <h4 class="card-title">En progreso</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="view overlay zoom hoverable z-depth-1">
+                            <img class="img-fluid" src="~/Content/img/archive.png" alt="Closed">
+                            <a href="@Url.Action("Closed", "Processes")">
+                                <div class="mask flex-center waves-effect waves-light rgba-black-strong rounded">
+                                    <h2 class="white-text"></h2>
+                                </div>
+                            </a>
+                        </div>
+                        <a href="@Url.Action("Closed", "Processes")" class="btn-floating btn-action ml-auto mr-4 red lighten"><span>2</span></a>
+                        <div class="card-body">
+                            <h4 class="card-title">Archivados</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

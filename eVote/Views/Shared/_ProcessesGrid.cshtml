@@ -1,0 +1,39 @@
+﻿@model org.oas.cidh.eVote.ViewModels.VotingProcessesViewModel
+
+<!--Table-->
+<table class="table table-hover">
+    <!--Table head-->
+    <thead>
+        <tr>
+            @*class="text-center font-weight-bold"*@
+            <th>Prioridad</th>
+            <th>Paises</th>
+            <th>Categoría</th>
+            <th>Tema / Relatoría</th>
+            <th>PC / MC</th>
+            <th>Fecha de inicio</th>
+            <th>Fecha de cierre</th>
+            <th>Votos</th>
+        </tr>
+    </thead>
+    <!--Table head-->
+    <!--Table body-->
+    <tbody>
+        @foreach (var p in Model.VotingProcesses)
+        {
+            <tr onclick="window.location='@Url.Action("Details", "Processes", new { id = p.Id })'">
+                <td class="text-center red-text"><i class="fa fa-exclamation" aria-hidden="true"></i></td>
+                <td class="text-center"><img src="@p.Countries.FirstOrDefault().ImgURL" /></td>
+                <td>@p.Category.Name</td>
+                <td>@p.Subject.Name</td>
+                <td>@p.CaseId</td>
+                <td>@p.StartDate.ToShortDateString()</td>
+                <td>@p.EndDate.ToShortDateString()</td>
+                <td>JO, FE</td>
+            </tr>
+        }
+    </tbody>
+    <!--Table body-->
+
+</table>
+<!--Table-->

@@ -1,174 +1,21 @@
 ﻿@model org.oas.cidh.eVote.ViewModels.VotingProcessesViewModel
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Pending processes";
+    Layout = "~/Views/Shared/_ProcessLayout.cshtml";
 }
+    
+<section>
+    <div class="container mt-5">
+        
+        <h1 class="font-bold">Pendientes</h1>
 
-<!-- Nav tabs -->
-<ul class="nav nav-tabs nav-justified  light-blue darken-3 mx-0" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#pending" role="tab"><i class="fa fa-calendar-check-o"></i> Pendientes <span class="badge badge-pill badge-danger">3</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#inProgress" role="tab"><i class="fa fa-edit"></i> En Progreso <span class="badge badge-pill badge-danger">5</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#closed" role="tab"><i class="fa fa-folder-o"></i> Archivo <span class="badge badge-pill badge-danger">2</span></a>
-    </li>
-</ul>
-
-<div class="container">
-    @*<div class="mt-4">
-        @Html.Partial("_WelcomeUser")
-    </div>*@
-    <!-- Tab panels -->
-    <div class="tab-content">
-        <!--Pending-->
-        <div class="tab-pane fade in show active" id="pending" role="tabpanel">
-            <h1 class="card-title pt-5 font-bold"><strong>Pendientes</strong></h1> @*flex-center*@
-            <div class="white z-depth-2">
-                <!--Table-->
-                <table class="table table-hover">
-                    @*table-responsive*@
-                    <!--Table head-->
-                    <thead>
-                        <tr>
-                            @*<th></th>*@
-                            <th class="text-center"><strong>País</strong></th>
-                            <th><strong>Categoría</strong></th>
-                            <th><strong>Tema / Relatoría</strong></th>
-                            <th><strong>PC / MC</strong></th>
-                            <th><strong>Fecha de inicio</strong> </th>
-                            <th><strong>Fecha de cierre</strong></th>
-                            <th><strong>Votos</strong></th>
-                        </tr>
-                    </thead>
-                    <!--Table head-->
-                    <!--Table body-->
-                    <tbody>
-                        @foreach (var p in Model.VotingProcesses)
-                        {
-                            if (p.StatusId == 1)
-                            {
-                                <tr onclick="window.location='@Url.Action("Details", "Processes", new { id = p.Id })'">
-                                    @*<td class="text-center red-text"><i class="fa fa-exclamation" aria-hidden="true"></i></td>*@
-                                    <td class="text-center"><img src="@p.Countries.FirstOrDefault().ImgURL" /></td>
-                                    <td>@p.Category.Name</td>
-                                    <td>@p.Subject.Name</td>
-                                    <td>@p.CaseId</td>
-                                    <td>@p.StartDate.ToShortDateString()</td>
-                                    <td>@p.EndDate.ToShortDateString()</td>
-                                    <td>JO, FE</td>
-                                </tr>
-                            }
-                        }
-                    </tbody>
-                    <!--Table body-->
-
-                </table>
-                <!--Table-->
-            </div>
-        </div>
-
-        <!--In Progress-->
-        <div class="tab-pane fade" id="inProgress" role="tabpanel">
-            <h1 class="card-title pt-5 font-bold"><strong>En Progreso</strong></h1> @*flex-center*@
-            <div class="white z-depth-2">
-                <!--Table-->
-                <table class="table table-hover">
-                    @*table-responsive*@
-                    <!--Table head-->
-                    <thead>
-                        <tr>
-                            @*<th></th>*@
-                            <th class="text-center"><strong>País</strong></th>
-                            <th><strong>Categoría</strong></th>
-                            <th><strong>Tema / Relatoría</strong></th>
-                            <th><strong>PC / MC</strong></th>
-                            <th><strong>Fecha de inicio</strong> </th>
-                            <th><strong>Fecha de cierre</strong></th>
-                            <th><strong>Votos</strong></th>
-                        </tr>
-                    </thead>
-                    <!--Table head-->
-                    <!--Table body-->
-                    <tbody>
-                        @foreach (var p in Model.VotingProcesses)
-                        {
-                            if (p.StatusId == 2)
-                            {
-                                <tr onclick="window.location='@Url.Action("Details", "Processes", new { id = p.Id })'">
-                                    @*<td class="text-center red-text"><i class="fa fa-exclamation" aria-hidden="true"></i></td>*@
-                                    <td class="text-center"><img src="@p.Countries.FirstOrDefault().ImgURL" /></td>
-                                    <td>@p.Category.Name</td>
-                                    <td>@p.Subject.Name</td>
-                                    <td>@p.CaseId</td>
-                                    <td>@p.StartDate.ToShortDateString()</td>
-                                    <td>@p.EndDate.ToShortDateString()</td>
-                                    <td>JO, FE</td>
-                                </tr>
-                            }
-                        }
-                    </tbody>
-                    <!--Table body-->
-
-                </table>
-                <!--Table-->
-            </div>
-        </div>
-
-        <!--Closed-->
-        <div class="tab-pane fade" id="closed" role="tabpanel">
-            <h1 class="card-title pt-5 font-bold"><strong>Archivo</strong></h1> @*flex-center*@
-            <div class="white z-depth-2">
-                <!--Table-->
-                <table class="table table-hover">
-                    @*table-responsive*@
-                    <!--Table head-->
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th class="text-center"><strong>País</strong></th>
-                            <th><strong>Categoría</strong></th>
-                            <th><strong>Tema / Relatoría</strong></th>
-                            <th><strong>PC / MC</strong></th>
-                            <th><strong>Fecha de inicio</strong> </th>
-                            <th><strong>Fecha de cierre</strong></th>
-                            <th><strong>Votos</strong></th>
-                        </tr>
-                    </thead>
-                    <!--Table head-->
-                    <!--Table body-->
-                    <tbody>
-                        @foreach (var p in Model.VotingProcesses)
-                        {
-                            if (p.StatusId == 3)
-                            {
-                                <tr onclick="window.location='@Url.Action("Closed", "Processes", new { id = p.Id })'">
-                                    <td class="text-center red-text"><i class="fa fa-exclamation" aria-hidden="true"></i></td>
-                                    <td class="text-center"><img src="@p.Countries.FirstOrDefault().ImgURL" /></td>
-                                    <td>@p.Category.Name</td>
-                                    <td>@p.Subject.Name</td>
-                                    <td>@p.CaseId</td>
-                                    <td>@p.StartDate.ToShortDateString()</td>
-                                    <td>@p.EndDate.ToShortDateString()</td>
-                                    <td>JO, FE</td>
-                                </tr>
-                            }
-                        }
-                    </tbody>
-                    <!--Table body-->
-
-                </table>
-                <!--Table-->
-            </div>
+        <div class="white z-depth-2 table-responsive p-3">
+            @Html.Partial("_ProcessesGrid")
         </div>
     </div>
-    
-    <br/>
+</section>
 
-    @*@Html.Partial("_NewsFeed")*@
-    @*Html.Partial("_Timeline")*@
-    @Html.Partial("_Spotlight")
-</div>
+@*@Html.Partial("_NewsFeed")*@
+@*Html.Partial("_Timeline")*@
+@Html.Partial("_Spotlight")
