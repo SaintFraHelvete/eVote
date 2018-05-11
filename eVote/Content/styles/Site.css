@@ -223,3 +223,19 @@
     content: "" !important;
 }
 /* Breadcrumb */
+
+
+/*Responsive line breaks*/
+
+@media screen and (min-width: 768px) {
+    .rwd-break {
+        display: none;
+    }
+}
+
+/*Responsive line breaks*/
+
+
+.close {
+    max-width:20px;
+}

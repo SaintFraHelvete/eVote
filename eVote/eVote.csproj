@@ -212,6 +212,13 @@
     <Compile Include="ViewModels\VotingProcessesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\img\commissioners\AntoniaUrrejola.jpg" />
+    <Content Include="Content\img\commissioners\EsmeraldaArosemena.jpg" />
+    <Content Include="Content\img\commissioners\FlaviaPiovesan.jpg" />
+    <Content Include="Content\img\commissioners\FranciscoEguiguren.jpg" />
+    <Content Include="Content\img\commissioners\JoelHernandez.jpg" />
+    <Content Include="Content\img\commissioners\LuisVargas.jpg" />
+    <Content Include="Content\img\commissioners\MargaretteMayMacaulay.jpg" />
     <Content Include="Content\styles\bootstrap-grid.css" />
     <Content Include="Content\styles\bootstrap-grid.min.css" />
     <Content Include="Content\styles\bootstrap-reboot.css" />
@@ -418,8 +425,6 @@
     <Content Include="Views\Shared\_MainMenuAlt.cshtml" />
     <Content Include="Views\Notifications\Index.cshtml" />
     <Content Include="Views\Processes\Details.cshtml" />
-    <Content Include="Views\Processes\Vote.cshtml" />
-    <Content Include="Views\Processes\Docs.cshtml" />
     <Content Include="Views\Shared\_PageHeader.cshtml" />
     <Content Include="Views\Shared\_MenuFluidBar.cshtml" />
     <Content Include="Views\Shared\_Newsfeed.cshtml" />
