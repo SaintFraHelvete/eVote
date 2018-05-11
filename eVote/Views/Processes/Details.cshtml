@@ -5,299 +5,428 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!-- Nav tabs -->
-<ul class="nav nav-tabs nav-justified  light-blue darken-3 mx-0" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" href="@Url.Action("Index", "Processes")"><i class="fa fa-calendar-check-o"></i> Pendientes <span class="badge badge-pill badge-danger">3</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa fa-edit"></i> En Progreso <span class="badge badge-pill badge-danger">5</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="@Url.Action("Index", "Processes")" role="tab"><i class="fa fa-close"></i> Archivo <span class="badge badge-pill badge-danger">2</span></a>
-    </li>
-</ul>
+<!-- Breadcrumb -->
+<div class="light-blue darken-3 after-navBar">
+    <ol class="breadcrumb container light-blue darken-3">
+        <li class="breadcrumb-item"><a class="grey-text" href="@Url.Action("Index", "Processes")">Procesos</a><i class="fa fa-angle-right mx-2 grey-text" aria-hidden="true"></i></li>
+        <li class="breadcrumb-item active  text-light">Detalle</li>
+    </ol>
+</div>
 
-<div class="container">
-    <div class="tab-content">
-        <div id="pending" role="tabpanel">
+<section>
+    <div class="container mt-5">
 
-            <h1 class="card-title pt-5 font-bold"><strong>@Model.Category.Name</strong>
-            
-                @foreach (var p in Model.Countries)
-                {
-                    <span>
-                        <img src="@p.ImgURL" style="border-radius: 0 0 0 0;" alt="@p.Name" />
-                    </span>
-                }
+        <h1 class="font-bold">@Model.Category.Name <small class="text-muted">@Model.CaseId</small></h1>
+        
+        <div class="pl-1">
+            @foreach (var p in Model.Countries)
+            {
+                <span>
+                    <img src="@p.ImgURL" style="border-radius: 0 0 0 0;" alt="@p.Name" /> &nbsp; @p.Name
+                </span>
+            }
+        </div>
 
-            </h1> @*flex-center*@
-
-            <!-- Info row -->
-            <div class="white z-depth-2 mb-4">
-
-                <div class="row text-center pt-5">
-                    <div class="col">
-                        <i class="fa fa-5x fa-envelope-open indigo-text pb-2"></i><br />
-                        <span class="font-weight-bold">Estado:</span> Abierto
-                    </div>
-                    <div class="col">
-                        <i class="fa fa-5x fa-exclamation-triangle orange-text pb-2"></i><br />
-                        <span class="font-weight-bold">Fecha de cierre:</span> 01/01/2018
-                    </div>
-                    <div class="col">
-                        <a href="@Url.Action("Docs", "Processes")" alt="Docs">
-                            <i class="fa fa-5x fa-file blue-grey-text pb-2"></i><br />
-                            <span class="font-weight-bold">Documentos</span>
-                        </a>
-                    </div>
-                    <div class="col pb-4">
-                        <a href="@Url.Action("Vote", "Processes")" alt="Vote">
-                            <i class="fa fa-5x fa-calendar-check-o green-text pb-2" aria-hidden="true"></i><br />
-                            <span class="font-weight-bold">Vóte ahora!</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card deck -->
-            <div class="card-deck">
-
-                <div class="card mb-4">
+        <div class="row mt-4">
+            <div class="col-sm-12 col-md-4">
+                <!--Card Status-->
+                <div class="card z-depth-2 @(@Model.StatusId == 1 ? "success-color" : (@Model.StatusId == 2 ? "warning-color" : "red darken-3"))">
                     <div class="card-body">
-                        <h5 class="card-title"><strong>Votos</strong></h5>
-                        <table class="table table-hover card-text">
-                            <tbody>
-                                <tr>
-                                    <td><img src="~/Content/img/flags/GR.gif" style="border-radius: 0 0 0 0;" /></td>
-                                    <td><i class="fa fa-check green-text"></i></td>
-                                    <td>Comisionado 1</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="~/Content/img/flags/CR.gif" style="border-radius: 0 0 0 0;" /></td>
-                                    <td><i class="fa fa-close red-text"></i></td>
-                                    <td>Comisionado 2</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="~/Content/img/flags/GY.gif" style="border-radius: 0 0 0 0;" /></td>
-                                    <td><i class="fa fa-check green-text"></i></td>
-                                    <td>Comisionado 3</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="~/Content/img/flags/NI.gif" style="border-radius: 0 0 0 0;" /></td>
-                                    <td><i class="fa fa-close red-text"></i></td>
-                                    <td>Comisionado 4</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="~/Content/img/flags/RD.gif" style="border-radius: 0 0 0 0;" /></td>
-                                    <td><i class="fa fa-envelope-open-o orange-text" aria-hidden="true"></i></td>
-                                    <td>Comisionado 5</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title"><strong>Progreso</strong></h5><br />
-                        <div class="progress" style="height: 20px">
-                            <div class="progress-bar" role="progressbar" style="width: 80%; height: 20px" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">4 de 5 votos recolectados</div>
-                        </div>
-                        <text class="pull-left">Fecha de inicio: 01/01/2018</text><text class="pull-right">Fecha de cierre: 01/10/2018</text>
-                        <br /><br />
-                        <h5 class="card-title mt-4"><strong>Paises</strong></h5><br />
                         <div class="row">
-                            @foreach (var p in Model.Countries)
-                            {
-                                <div class="col text-center">
-                                    <img src="@p.ImgURL" style="border-radius: 0 0 0 0;" /><br />
-                                    @p.Name
-                                </div>
-                            }
+                            <div class="col-8">
+                                <h3 class="font-weight-bold white-text">@(@Model.StatusId == 1 ? "Abierto" : (@Model.StatusId == 2 ? "Votado" : "Archivado"))</h3>
+                                <h5 class="white-text ml-2">Estado del proceso</h5>
+                            </div>
+                            <div class="col-4">
+                                <span class="@(@Model.StatusId == 1 ? "green-text" : (@Model.StatusId == 2 ? "orange-text" : "red-text"))">
+                                    <i class="fa fa-5x @(@Model.StatusId == 1 ? "fa-envelope-open-o" : (@Model.StatusId == 2 ? "fa-envelope-o" : "fa-archive"))" aria-hidden="true"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
-
+                <!--/.Card Status-->
             </div>
-
-            <!-- Comments -->
-            <div class="white z-depth-2">
-                <div class="container p-4 ">
-                    <h2 class="pt-4 text-center">Comentarios <span class="badge blue">3</span></h2>
-                    <div class="row p-4">
-                        <div class="col-2">
-                            <img class="avatar rounded-circle z-depth-1-half" src="~/Content/img/comm2.png" style="max-width: 100px;" />
-                        </div>
-                        <div class="col-10">
-                            <a>
-                                <h4 class="font-weight-bold">Comisionado 2</h4>
-                            </a>
-                            <div class="mt-2">
-                                <ul class="list-unstyled">
-                                    <li class="comment-date">
-                                        <i class="fa fa-clock-o"></i> 05/10/2015
-                                    </li>
-                                </ul>
+            <div class="col-sm-12 col-md-4">
+                <!--Card Deadline-->
+                <div class="card z-depth-2 indigo">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-8">
+                                <h3 class="font-weight-bold white-text">@Model.EndDate.ToShortDateString()</h3>
+                                <h5 class="white-text ml-2">Fecha de cierre</h5>
                             </div>
-                            <p class="grey-text">
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-                            </p>
-
-                            <a class="comment" data-toggle="collapse" href="#collapseExample-1" aria-expanded="false" aria-controls="collapseExample-1">Responder este comentario <i class="fa fa-commenting-o" aria-hidden="true"></i></a>
-
-                            <div class="collapse" id="collapseExample-1">
-                                <div class="card card-body mt-1 grey lighten-3">
-                                    <!--Agregar un comentario-->
-                                    <div class="md-form mt-1 mb-1">
-                                        <textarea type="text" id="form7" class="md-textarea" style="width:100%"></textarea>
-                                        <label for="form7">Déje un comentario</label>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false" aria-controls="collapseExample-1">
-                                            Cancelar
-                                        </button>
-                                        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false"
-                                                aria-controls="collapseExample-1">
-                                            Responder
-                                        </button>
-                                    </div>
-                                </div>
+                            <div class="col-4">
+                                <span class="blue-text">
+                                    <i class="fa fa-5x fa-calendar" aria-hidden="true"></i>
+                                </span>
                             </div>
-
                         </div>
                     </div>
-                    <div class="row p-4">
-                        <div class="col-2">
-                            <img class="avatar rounded-circle z-depth-1-half" src="~/Content/img/comm1.png" style="max-width: 100px;" />
-                        </div>
-                        <div class="col-10">
-                            <a>
-                                <h4 class="font-weight-bold">Comisionado 1</h4>
-                            </a>
-                            <div class="mt-2">
-                                <ul class="list-unstyled">
-                                    <li class="comment-date">
-                                        <i class="fa fa-clock-o"></i> 05/10/2015
-                                    </li>
-                                </ul>
+                </div>
+                <!--/.Card Deadline-->
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <!--Card Progress-->
+                <div class="card z-depth-2 deep-orange">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-8">
+                                <h3 class="font-weight-bold white-text">6 de 7 votos</h3>
+                                <h5 class="white-text ml-2">Recibidos</h5>
                             </div>
-                            <p class="grey-text">
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-                            </p>
-
-                            <a class="comment" data-toggle="collapse" href="#collapseExample-2" aria-expanded="false" aria-controls="collapseExample-2">Responder este comentario <i class="fa fa-commenting-o" aria-hidden="true"></i></a>
-
-                            <div class="collapse" id="collapseExample-2">
-                                <div class="card card-body mt-1 grey lighten-3">
-                                    <!--Agregar un comentario-->
-                                    <div class="md-form mt-1 mb-1">
-                                        <textarea type="text" id="form7" class="md-textarea" style="width:100%"></textarea>
-                                        <label for="form7">Déje un comentario</label>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false" aria-controls="collapseExample-1">
-                                            Cancelar
-                                        </button>
-                                        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false"
-                                                aria-controls="collapseExample-1">
-                                            Responder
-                                        </button>
-                                    </div>
-                                </div>
+                            <div class="col-4">
+                                <span class="orange-text">
+                                    <i class="fa fa-5x fa-tv" aria-hidden="true"></i>
+                                </span>
                             </div>
-
                         </div>
                     </div>
-                    <div class="row p-4">
-                        <div class="col-2">
-                            <img class="avatar rounded-circle z-depth-1-half" src="~/Content/img/comm3.png" style="max-width: 100px;" />
-                        </div>
-                        <div class="col-10">
-                            <a>
-                                <h4 class="font-weight-bold">Comisionado 3</h4>
-                            </a>
-                            <div class="mt-2">
-                                <ul class="list-unstyled">
-                                    <li class="comment-date">
-                                        <i class="fa fa-clock-o"></i> 05/10/2015
-                                    </li>
-                                </ul>
-                            </div>
-                            <p class="grey-text">
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-                            </p>
+                </div>
+                <!--/.Card Progress-->
+            </div>
+        </div>
 
-                            <a class="comment" data-toggle="collapse" href="#collapseExample-3" aria-expanded="false" aria-controls="collapseExample-3">Responder este comentario <i class="fa fa-commenting-o" aria-hidden="true"></i></a>
+        <div class="row mt-5">
+            <!--Commissioners-->
+            <div class="col-sm-12 col-md-6">
+                <div class="card white z-depth-2 table-responsive p-4">
+                    <p class="font-weight-bold"><i class="fa fa-users" aria-hidden="true"></i> Votos</p>
+                    <table class="table table-sm table-hover card-text">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="font-weight-bold">Comisionado</th>
+                                <th class="font-weight-bold text-center">Resultado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="~/Content/img/flags/JA.gif" style="border-radius: 0 0 0 0;" /></td>
+                                <td>Margarette May Macaulay</td>
+                                <td class="text-center"><i class="fa fa-check green-text"></i></td>
+                            </tr>
+                            <tr>
+                                <td><img src="~/Content/img/flags/PN.gif" style="border-radius: 0 0 0 0;" /></td>
+                                <td>Esmeralda Arosemena de Troitiño</td>
+                                <td class="text-center"><i class="fa fa-close red-text"></i></td>
+                            </tr>
+                            <tr>
+                                <td><img src="~/Content/img/flags/CO.gif" style="border-radius: 0 0 0 0;" /></td>
+                                <td>Luis Ernesto Vargas Silva</td>
+                                <td class="text-center"><i class="fa fa-check green-text"></i></td>
+                            </tr>
+                            <tr>
+                                <td><img src="~/Content/img/flags/PE.gif" style="border-radius: 0 0 0 0;" /></td>
+                                <td>Francisco José Eguiguren Praeli</td>
+                                <td class="text-center"><i class="fa fa-close red-text"></i></td>
+                            </tr>
+                            <tr>
+                                <td><img src="~/Content/img/flags/MX.gif" style="border-radius: 0 0 0 0;" /></td>
+                                <td>Joel Hernández García</td>
+                                <td class="text-center"><i class="fa fa-check green-text" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td><img src="~/Content/img/flags/CH.gif" style="border-radius: 0 0 0 0;" /></td>
+                                <td>Antonia Urrejola Noguera</td>
+                                <td class="text-center"><i class="fa fa-close red-text" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td><img src="~/Content/img/flags/BR.gif" style="border-radius: 0 0 0 0;" /></td>
+                                <td>Flávia Piovesan</td>
+                                <td class="text-center"><i class="fa fa-envelope-open-o orange-text" aria-hidden="true"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--/.Commissioners-->
 
-                            <div class="collapse" id="collapseExample-3">
-                                <div class="card card-body mt-1 grey lighten-3">
-                                    <!--Agregar un comentario-->
-                                    <div class="md-form mt-1 mb-1">
-                                        <textarea type="text" id="form7" class="md-textarea" style="width:100%"></textarea>
-                                        <label for="form7">Déje un comentario</label>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false" aria-controls="collapseExample-1">
-                                            Cancelar
-                                        </button>
-                                        <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false"
-                                                aria-controls="collapseExample-1">
-                                            Responder
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+            <!--Docs and btn-->
+            <div class="col-sm-12 col-md-6">
+                <div class="card white z-depth-2 p-4">
+                    <p class="font-weight-bold"><i class="fa fa-file-text" aria-hidden="true"></i> Documentos <span class="badge badge-primary badge-pill">4</span></p>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active disabled py-1">Documento principal</a>
+                        <a href="#" class="list-group-item list-group-item-action waves-effect py-1"><i class="fa fa-file-word-o" aria-hidden="true"></i> &nbsp; Dapibus ac facilisis in.docx</a>
                     </div>
-
-                    <hr />
-
-                    <section class="p-4">
-                        <!--Leave a reply form-->
-                        <div class="reply-form">
-                            <h3 class="section-heading h3 py-4">Déje un comentario </h3>
-                            <!--Third row-->
+                    <div class="list-group mt-2">
+                        <a href="#" class="list-group-item active disabled py-1">Documentos de soporte</a>
+                        <a href="#" class="list-group-item list-group-item-action waves-effect py-1"><i class="fa fa-file-excel-o" aria-hidden="true"></i> &nbsp; Morbi leo risus.xls</a>
+                        <a href="#" class="list-group-item list-group-item-action waves-effect py-1"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp; Porta ac consectetur ac.pdf</a>
+                        <a href="#" class="list-group-item list-group-item-action waves-effect py-1"><i class="fa fa-file-photo-o" aria-hidden="true"></i> &nbsp; Vestibulum at eros.jpeg</a>
+                    </div>
+                    
+                    <div class="my-4 text-center">
+                        <button class="btn btn-lg @(@Model.StatusId == 1 ? "blue-gradient" : (@Model.StatusId == 2 ? "purple-gradient" : "peach-gradient disabled")) btn-rounded" data-toggle="collapse" data-target="#collapseOne"><i class="switch fa fa-pencil-square-o pr-2" aria-hidden="true"></i>@(@Model.StatusId == 1 ? "Vóte ahora!" : (@Model.StatusId == 2 ? "Editar voto" : "Votación cerrada"))</button>
+                    </div>
+                </div>
+            </div>
+            <!--Docs and btn-->
+            
+        </div>
+        <!--Voting-->
+        <div class="row mt-5">
+            <div class="col">
+                <div>
+                    <div class="collapse" id="collapseOne">
+                        <!--Panel-->
+                        <div class="card white z-depth-2 p-4">
+                            <p class="font-weight-bold"><i class="fa fa-archive" aria-hidden="true"></i> Votación</p>
+                            <p class="mb-0 text-muted">Esta es la descripción del proceso de votación que el administrador puede agregar el momento de crear la votación.</p>
+                            <hr />
                             <div class="row">
-                                <!--Image column-->
-                                <div class="col-sm-2 col-12">
-                                    <img src="~/Content/img/comm1.png" alt="user" class="img-fluid avatar rounded-circle z-depth-2" style="max-width: 100px;">
+                                <div class="col">
+                                    <h4 class="flex-center font-weight-bold">Votar</h4>
                                 </div>
-                                <!--/.Image column-->
-                                <!--Content column-->
-                                <div class="col-sm-10 col-12">
-                                    <!--Grid row-->
-                                    <div class="row">
+                            </div>
 
-                                        <div class="col-12 mt-1">
-                                            <div class="form-group basic-textarea rounded-corners shadow-textarea">
-                                                <textarea class="form-control" id="exampleFormControlTextarea6" rows="5" placeholder="Su comentario..."></textarea>
-                                            </div>
 
-                                            <div class="text-right">
-                                                <button class="btn btn-primary btn-sm waves-effect waves-light">Enviar</button>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="btn-group flex-center" data-toggle="buttons">
+                                        <label class="btn btn-lg btn-success">
+                                            <input type="radio" name="options" id="option1" autocomplete="off"> Aprobar
+                                        </label>
+                                        &nbsp;
+                                        <label class="btn btn-lg btn-danger">
+                                            <input type="radio" name="options" id="option2" autocomplete="off"> No aprobar
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            @*<div class="row">
+                                <div class="col">
+                                    <div class="pull-right">
+                                        <a class="btn-floating btn-lg green"><i class="fa fa-check"></i></a>
+                                        <br />
+                                        <span class="font-weight-bold">Aprobar</span>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="pull-left">
+                                        <a class="btn-floating btn-lg red"><i class="fa fa-close"></i></a>
+                                        <br />
+                                        <span class="font-weight-bold">No aprobar</span>
+                                    </div>
+                                </div>
+                            </div>*@
+
+                            <div class="row pt-4">
+                                <div class="col">
+                                    <div class="mt-1 grey lighten-4">
+                                        <!--Add comment-->
+                                        <div class="md-form mt-1 mb-1">
+                                            <textarea type="text" id="form7" class="md-textarea" style="width:100%"></textarea>
+                                            <label for="form7" class="p-2">Dejar un comentario...</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary pull-right btn-lg" type="button" data-toggle="collapse" data-target="#collapseOne">Guardar Votación <i class="fa fa-lg fa-check-square-o"></i></button>
+
+                        </div>
+                        <!--/.Panel-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.Voting-->
+
+        <div class="row mt-5">
+            <div class="col">
+                <!-- Comments -->
+                <div class="white z-depth-2">
+                    <div class="container p-4 ">
+                        <h2 class="pt-4 text-center">Comentarios <span class="badge blue">3</span></h2>
+                        <div class="row p-4">
+                            <div class="col-2">
+                                <img class="avatar rounded-circle z-depth-1-half" src="~/Content/img/commissioners/AntoniaUrrejola.jpg" style="max-width: 100px;" />
+                            </div>
+                            <div class="col-10">
+                                <a>
+                                    <h4 class="font-weight-bold">Antonia Urrejola</h4>
+                                </a>
+                                <div class="mt-2">
+                                    <ul class="list-unstyled">
+                                        <li class="comment-date">
+                                            <i class="fa fa-clock-o"></i> 05/10/2015 11:11 AM
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="grey-text">
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                    nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+                                </p>
+
+                                <a class="comment" data-toggle="collapse" href="#collapseExample-1" aria-expanded="false" aria-controls="collapseExample-1">Responder este comentario <i class="fa fa-commenting-o" aria-hidden="true"></i></a>
+
+                                <div class="collapse" id="collapseExample-1">
+                                    <div class="card card-body mt-1 grey lighten-3">
+                                        <!--Agregar un comentario-->
+                                        <div class="md-form mt-1 mb-1">
+                                            <textarea type="text" id="form7" class="md-textarea" style="width:100%"></textarea>
+                                            <label for="form7">Déje un comentario</label>
+                                        </div>
+                                        <div class="d-flex justify-content-end">
+                                            <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false" aria-controls="collapseExample-1">
+                                                Cancelar
+                                            </button>
+                                            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false"
+                                                    aria-controls="collapseExample-1">
+                                                Responder
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row p-4">
+                            <div class="col-2">
+                                <img class="avatar rounded-circle z-depth-1-half" src="~/Content/img/commissioners/EsmeraldaArosemena.jpg" style="max-width: 100px;" />
+                            </div>
+                            <div class="col-10">
+                                <a>
+                                    <h4 class="font-weight-bold">Esmeralda Arosemena</h4>
+                                </a>
+                                <div class="mt-2">
+                                    <ul class="list-unstyled">
+                                        <li class="comment-date">
+                                            <i class="fa fa-clock-o"></i> 05/10/2015 04:20 PM
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="grey-text">
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                    nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+                                </p>
+
+                                <a class="comment" data-toggle="collapse" href="#collapseExample-2" aria-expanded="false" aria-controls="collapseExample-2">Responder este comentario <i class="fa fa-commenting-o" aria-hidden="true"></i></a>
+
+                                <div class="collapse" id="collapseExample-2">
+                                    <div class="card card-body mt-1 grey lighten-3">
+                                        <!--Agregar un comentario-->
+                                        <div class="md-form mt-1 mb-1">
+                                            <textarea type="text" id="form7" class="md-textarea" style="width:100%"></textarea>
+                                            <label for="form7">Déje un comentario</label>
+                                        </div>
+                                        <div class="d-flex justify-content-end">
+                                            <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false" aria-controls="collapseExample-1">
+                                                Cancelar
+                                            </button>
+                                            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false"
+                                                    aria-controls="collapseExample-1">
+                                                Responder
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row p-4">
+                            <div class="col-2">
+                                <img class="avatar rounded-circle z-depth-1-half" src="~/Content/img/commissioners/FranciscoEguiguren.jpg" style="max-width: 100px;" />
+                            </div>
+                            <div class="col-10">
+                                <a>
+                                    <h4 class="font-weight-bold">Francisco Eguiguren</h4>
+                                </a>
+                                <div class="mt-2">
+                                    <ul class="list-unstyled">
+                                        <li class="comment-date">
+                                            <i class="fa fa-clock-o"></i> 05/10/2015 05:15 PM
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="grey-text">
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                    nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+                                </p>
+
+                                <a class="comment" data-toggle="collapse" href="#collapseExample-3" aria-expanded="false" aria-controls="collapseExample-3">Responder este comentario <i class="fa fa-commenting-o" aria-hidden="true"></i></a>
+
+                                <div class="collapse" id="collapseExample-3">
+                                    <div class="card card-body mt-1 grey lighten-3">
+                                        <!--Agregar un comentario-->
+                                        <div class="md-form mt-1 mb-1">
+                                            <textarea type="text" id="form7" class="md-textarea" style="width:100%"></textarea>
+                                            <label for="form7">Déje un comentario</label>
+                                        </div>
+                                        <div class="d-flex justify-content-end">
+                                            <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false" aria-controls="collapseExample-1">
+                                                Cancelar
+                                            </button>
+                                            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample-1" aria-expanded="false"
+                                                    aria-controls="collapseExample-1">
+                                                Responder
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <section class="p-4">
+                            <!--Leave a reply form-->
+                            <div class="reply-form">
+                                <h3 class="section-heading h3 py-4">Déje un comentario </h3>
+                                <!--Third row-->
+                                <div class="row">
+                                    <!--Image column-->
+                                    <div class="col-sm-2 col-12">
+                                        <img src="~/Content/img/comm1.png" alt="user" class="img-fluid avatar rounded-circle z-depth-2" style="max-width: 100px;">
+                                    </div>
+                                    <!--/.Image column-->
+                                    <!--Content column-->
+                                    <div class="col-sm-10 col-12">
+                                        <!--Grid row-->
+                                        <div class="row">
+
+                                            <div class="col-12 mt-1">
+                                                <div class="form-group basic-textarea rounded-corners shadow-textarea">
+                                                    <textarea class="form-control" id="exampleFormControlTextarea6" rows="5" placeholder="Su comentario..."></textarea>
+                                                </div>
+
+                                                <div class="text-right">
+                                                    <button class="btn btn-primary btn-sm waves-effect waves-light">Enviar</button>
+                                                </div>
+
                                             </div>
 
                                         </div>
+                                        <!--Grid row-->
 
                                     </div>
-                                    <!--Grid row-->
 
                                 </div>
-
+                                <!--/.Leave a reply form-->
                             </div>
-                            <!--/.Leave a reply form-->
-                        </div>
-                    </section>
+                        </section>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+
+
+<script type="text/javascript">
+    $('#collapseOne').on('shown.bs.collapse', function () {
+        $(".switch").removeClass("fa-pencil-square-o").addClass("fa-pencil-square");
+    });
+
+    $('#collapseOne').on('hidden.bs.collapse', function () {
+        $(".switch").removeClass("fa-pencil-square").addClass("fa-pencil-square-o");
+    });
+</script>

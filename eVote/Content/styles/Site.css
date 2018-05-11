@@ -217,3 +217,9 @@
     }
 }
 /* Processes Nav */
+
+/* Breadcrumb */
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "" !important;
+}
+/* Breadcrumb */

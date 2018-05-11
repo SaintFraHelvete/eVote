@@ -413,7 +413,6 @@
     <Content Include="Content\scripts\popper-utils.min.js.map" />
     <Content Include="Content\scripts\popper-utils.js.map" />
     <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Processes\Pending.cshtml" />
     <Content Include="Views\Processes\InProgress.cshtml" />
     <Content Include="Views\Processes\Closed.cshtml" />
     <Content Include="Views\Shared\_MainMenuAlt.cshtml" />
