@@ -6,14 +6,14 @@
     <thead>
         <tr>
             @*class="text-center font-weight-bold"*@
-            <th>Prioridad</th>
-            <th>Paises</th>
-            <th>Categoría</th>
-            <th>Tema / Relatoría</th>
-            <th>PC / MC</th>
-            <th>Fecha de inicio</th>
-            <th>Fecha de cierre</th>
-            <th>Votos</th>
+            <th class="font-weight-bold">Prioridad</th>
+            <th class="font-weight-bold">Paises</th>
+            <th class="font-weight-bold">Categoría</th>
+            <th class="font-weight-bold">Tema / Relatoría</th>
+            <th class="font-weight-bold">PC / MC</th>
+            <th class="font-weight-bold">Fecha de inicio</th>
+            <th class="font-weight-bold">Fecha de cierre</th>
+            <th class="font-weight-bold">Resultado</th>
         </tr>
     </thead>
     <!--Table head-->
@@ -29,7 +29,7 @@
                 <td>@p.CaseId</td>
                 <td>@p.StartDate.ToShortDateString()</td>
                 <td>@p.EndDate.ToShortDateString()</td>
-                <td>JO, FE</td>
+                <td>@p.Result.ToString()</td>
             </tr>
         }
     </tbody>

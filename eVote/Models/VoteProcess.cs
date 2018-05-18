@@ -28,5 +28,8 @@ namespace org.oas.cidh.eVote.Models
         public List<string> SupportDocIds { get; set; }
         public int StatusId { get; set; }
         public Dictionary<int, bool> Votes { get; set; }
+        public VotingResult Result { get; set; }
     }
+
+    public enum VotingResult { Aprobado, NoAprobado, Pendiente };
 }

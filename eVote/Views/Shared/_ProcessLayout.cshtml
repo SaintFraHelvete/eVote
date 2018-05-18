@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!-- Processes Menu -->
+<!--Processes Menu-->
 <ul class="nav nav-tabs nav-justified processes-nav after-navBar light-blue darken-3 mx-0">
     <li class="nav-item">
         <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" href="@Url.Action("Index", "Processes")"><i class="fa fa-calendar-check-o"></i> Pendientes <span class="badge badge-pill badge-danger">3</span></a>
@@ -15,6 +15,6 @@
         <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Closed" ? "active" : "")" href="@Url.Action("Closed", "Processes")"><i class="fa fa-folder-o"></i> Archivados <span class="badge badge-pill badge-danger">2</span></a>
     </li>
 </ul>
-<!-- Processes Menu -->
+<!--/.Processes Menu-->
 
 @RenderBody()

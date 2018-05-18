@@ -1,0 +1,15 @@
+﻿@model org.oas.cidh.eVote.Models.VoteProcess
+
+<!--Breadcrumb-->
+<div class="light-blue darken-3 after-navBar">
+    <ol class="breadcrumb container light-blue darken-3">
+        <li class="breadcrumb-item">
+            <a class="grey-text" href="@(@Model.StatusId == 1 ? Url.Action("Index", "Processes") : (@Model.StatusId == 2 ? Url.Action("InProgress", "Processes") : Url.Action("Closed", "Processes")))">
+                @(@Model.StatusId == 1 ? "Pendientes" : (@Model.StatusId == 2 ? "En progreso" : "Archivados"))
+            </a>
+            <i class="fa fa-angle-right mx-2 grey-text" aria-hidden="true"></i>
+        </li>
+        <li class="breadcrumb-item active  text-light">Detalle</li>
+    </ol>
+</div>
+<!--/.Breadcrumb-->

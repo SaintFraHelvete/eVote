@@ -219,6 +219,7 @@
     <Content Include="Content\img\commissioners\JoelHernandez.jpg" />
     <Content Include="Content\img\commissioners\LuisVargas.jpg" />
     <Content Include="Content\img\commissioners\MargaretteMayMacaulay.jpg" />
+    <Content Include="Content\img\oas-logo-sm.gif" />
     <Content Include="Content\styles\bootstrap-grid.css" />
     <Content Include="Content\styles\bootstrap-grid.min.css" />
     <Content Include="Content\styles\bootstrap-reboot.css" />
@@ -295,6 +296,8 @@
     <Content Include="Content\img\Logo-EN.png" />
     <Content Include="Content\styles\mdb.css" />
     <Content Include="Content\styles\mdb.min.css" />
+    <Content Include="Content\styles\toastr.css" />
+    <Content Include="Content\styles\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
@@ -349,6 +352,8 @@
     <Content Include="Content\fonts\roboto\Roboto-Thin.ttf" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff" />
     <Content Include="Content\fonts\roboto\Roboto-Thin.woff2" />
+    <Content Include="Content\styles\toastr.scss" />
+    <Content Include="Content\styles\toastr.less" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Content\scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Content\scripts\jquery-3.3.1.js" />
@@ -376,6 +381,8 @@
     <Content Include="Content\scripts\umd\popper-utils.min.js" />
     <Content Include="Content\scripts\umd\popper.js" />
     <Content Include="Content\scripts\umd\popper.min.js" />
+    <Content Include="Content\scripts\toastr.js" />
+    <Content Include="Content\scripts\toastr.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -422,7 +429,6 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Processes\InProgress.cshtml" />
     <Content Include="Views\Processes\Closed.cshtml" />
-    <Content Include="Views\Shared\_MainMenuAlt.cshtml" />
     <Content Include="Views\Notifications\Index.cshtml" />
     <Content Include="Views\Processes\Details.cshtml" />
     <Content Include="Views\Shared\_PageHeader.cshtml" />
@@ -440,6 +446,7 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Shared\_ProcessLayout.cshtml" />
     <Content Include="Views\Shared\_ProcessesGrid.cshtml" />
+    <Content Include="Views\Shared\_Breadcrumb.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

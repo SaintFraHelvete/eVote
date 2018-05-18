@@ -5,13 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!-- Breadcrumb -->
-<div class="light-blue darken-3 after-navBar">
-    <ol class="breadcrumb container light-blue darken-3">
-        <li class="breadcrumb-item"><a class="grey-text" href="@Url.Action("Index", "Processes")">Procesos</a><i class="fa fa-angle-right mx-2 grey-text" aria-hidden="true"></i></li>
-        <li class="breadcrumb-item active  text-light">Detalle</li>
-    </ol>
-</div>
+@Html.Partial("_Breadcrumb")
 
 <section>
     <div class="container mt-5">
@@ -30,18 +24,18 @@
         <!--/.Countries List-->
 
         <div class="row mt-4">
-            <div class="col-sm-12 col-md-4 my-2">
+            <div class="col-12 col-md-3 my-2">
                 <!--Card Status-->
                 <div class="card z-depth-2 @(@Model.StatusId == 1 ? "success-color" : (@Model.StatusId == 2 ? "warning-color" : "red darken-3"))">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8">
-                                <h3 class="font-weight-bold white-text">@(@Model.StatusId == 1 ? "Abierto" : (@Model.StatusId == 2 ? "Votado" : "Archivado"))</h3>
-                                <h5 class="white-text ml-2">Estado del proceso</h5>
+                                <h5 class="font-weight-bold white-text">@(@Model.StatusId == 1 ? "Abierto" : (@Model.StatusId == 2 ? "Abierto" : "Archivado"))</h5>
+                                <small class="white-text">Estado del proceso</small>
                             </div>
                             <div class="col-4">
                                 <span class="@(@Model.StatusId == 1 ? "green-text" : (@Model.StatusId == 2 ? "orange-text" : "red-text"))">
-                                    <i class="fa fa-5x @(@Model.StatusId == 1 ? "fa-envelope-open-o" : (@Model.StatusId == 2 ? "fa-envelope-o" : "fa-archive"))" aria-hidden="true"></i>
+                                    <i class="fa fa-4x @(@Model.StatusId == 1 ? "fa-envelope-open-o" : (@Model.StatusId == 2 ? "fa-envelope-o" : "fa-archive"))" aria-hidden="true"></i>
                                 </span>
                             </div>
                         </div>
@@ -49,18 +43,18 @@
                 </div>
                 <!--/.Card Status-->
             </div>
-            <div class="col-sm-12 col-md-4 my-2">
+            <div class="col-12 col-md-3 my-2">
                 <!--Card Deadline-->
                 <div class="card z-depth-2 indigo">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8">
-                                <h3 class="font-weight-bold white-text">@Model.EndDate.ToShortDateString()</h3>
-                                <h5 class="white-text ml-2">Fecha de cierre</h5>
+                                <h5 class="font-weight-bold white-text">@Model.EndDate.ToShortDateString()</h5>
+                                <small class="white-text">Fecha de cierre</small>
                             </div>
                             <div class="col-4">
                                 <span class="blue-text">
-                                    <i class="fa fa-5x fa-calendar" aria-hidden="true"></i>
+                                    <i class="fa fa-4x @(@Model.StatusId == 3 ? "fa-calendar-times-o" : "fa-calendar")" aria-hidden="true"></i>
                                 </span>
                             </div>
                         </div>
@@ -68,18 +62,18 @@
                 </div>
                 <!--/.Card Deadline-->
             </div>
-            <div class="col-sm-12 col-md-4 my-2">
+            <div class="col-12 col-md-3 my-2">
                 <!--Card Progress-->
                 <div class="card z-depth-2 deep-orange">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8">
-                                <h3 class="font-weight-bold white-text">6 de 7 votos</h3>
-                                <h5 class="white-text ml-2">Recibidos</h5>
+                                <h5 class="font-weight-bold white-text">6 de 7 votos</h5>
+                                <small class="white-text">Recibidos</small>
                             </div>
                             <div class="col-4">
                                 <span class="orange-text">
-                                    <i class="fa fa-5x fa-pie-chart" aria-hidden="true"></i>
+                                    <i class="fa fa-4x fa-pie-chart" aria-hidden="true"></i>
                                 </span>
                             </div>
                         </div>
@@ -87,13 +81,36 @@
                 </div>
                 <!--/.Card Progress-->
             </div>
+            <div class="col-12 col-md-3 my-2">
+                <!--Card Result-->
+                <div class="card z-depth-2 @(@Model.Result == org.oas.cidh.eVote.Models.VotingResult.Aprobado ? "success-color" : (Model.Result == org.oas.cidh.eVote.Models.VotingResult.NoAprobado ? "secondary-color" : "amber accent-4"))">@*danger-color*@
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-8">
+                                <h5 class="font-weight-bold white-text">@Model.Result.ToString()</h5>
+                                <small class="white-text">Resultado</small>
+                            </div>
+                            <div class="col-4">
+                                <span class="@(@Model.Result == org.oas.cidh.eVote.Models.VotingResult.Aprobado ? "green-text" : (Model.Result == org.oas.cidh.eVote.Models.VotingResult.NoAprobado ? "purple-text" : "orange-text"))">@*deep-orange-text*@
+                                    <i class="fa fa-4x @(@Model.Result == org.oas.cidh.eVote.Models.VotingResult.Aprobado ? "fa-check" : (Model.Result == org.oas.cidh.eVote.Models.VotingResult.NoAprobado ? "fa-times" : "fa-hourglass-2"))" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/.Card Result-->
+            </div>
         </div>
 
         <div class="row mt-5">
             <!--Commissioners-->
             <div class="col-sm-12 col-md-6 my-2">
                 <div class="card white z-depth-2 table-responsive p-4">
-                    <p class="font-weight-bold"><i class="fa fa-users" aria-hidden="true"></i> Votos</p>
+                    <div>
+                        <p class="font-weight-bold float-left">Votos</p>
+                        <i class="fa fa-2x fa-users float-right" style="margin-top:-15px; margin-right:-15px; color:#E0E0E0;" aria-hidden="true"></i>
+                    </div>
+                    
                     <table class="table table-sm table-hover card-text">
                         <thead>
                             <tr>
@@ -104,39 +121,39 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><img src="~/Content/img/flags/JA.gif" style="border-radius: 0 0 0 0;" /></td>
+                                <td><img src = "~/Content/img/flags/JA.gif" style="border-radius: 0 0 0 0;" /></td>
                                 <td>Margarette May Macaulay</td>
-                                <td class="text-center"><i class="fa fa-check green-text"></i></td>
+                                <td class="text-center" data-toggle="tooltip" data-placement="top" title="Aprobado"><i class="fa fa-check green-text"></i></td>
                             </tr>
                             <tr>
-                                <td><img src="~/Content/img/flags/PN.gif" style="border-radius: 0 0 0 0;" /></td>
+                                <td><img src = "~/Content/img/flags/PN.gif" style="border-radius: 0 0 0 0;" /></td>
                                 <td>Esmeralda Arosemena de Troitiño</td>
-                                <td class="text-center"><i class="fa fa-close red-text"></i></td>
+                                <td class="text-center" data-toggle="tooltip" data-placement="top" title="No Aprobado"><i class="fa fa-close red-text"></i></td>
                             </tr>
                             <tr>
-                                <td><img src="~/Content/img/flags/CO.gif" style="border-radius: 0 0 0 0;" /></td>
+                                <td><img src = "~/Content/img/flags/CO.gif" style="border-radius: 0 0 0 0;" /></td>
                                 <td>Luis Ernesto Vargas Silva</td>
-                                <td class="text-center"><i class="fa fa-check green-text"></i></td>
+                                <td class="text-center" data-toggle="tooltip" data-placement="top" title="Aprobado"><i class="fa fa-check green-text"></i></td>
                             </tr>
                             <tr>
-                                <td><img src="~/Content/img/flags/PE.gif" style="border-radius: 0 0 0 0;" /></td>
+                                <td><img src = "~/Content/img/flags/PE.gif" style="border-radius: 0 0 0 0;" /></td>
                                 <td>Francisco José Eguiguren Praeli</td>
-                                <td class="text-center"><i class="fa fa-close red-text"></i></td>
+                                <td class="text-center" data-toggle="tooltip" data-placement="top" title="No Aprobado"><i class="fa fa-close red-text"></i></td>
                             </tr>
                             <tr>
-                                <td><img src="~/Content/img/flags/MX.gif" style="border-radius: 0 0 0 0;" /></td>
+                                <td><img src = "~/Content/img/flags/MX.gif" style="border-radius: 0 0 0 0;" /></td>
                                 <td>Joel Hernández García</td>
-                                <td class="text-center"><i class="fa fa-check green-text" aria-hidden="true"></i></td>
+                                <td class="text-center" data-toggle="tooltip" data-placement="top" title="Aprobado"><i class="fa fa-check green-text" aria-hidden="true"></i></td>
                             </tr>
                             <tr>
-                                <td><img src="~/Content/img/flags/CH.gif" style="border-radius: 0 0 0 0;" /></td>
+                                <td><img src = "~/Content/img/flags/CH.gif" style="border-radius: 0 0 0 0;" /></td>
                                 <td>Antonia Urrejola Noguera</td>
-                                <td class="text-center"><i class="fa fa-close red-text" aria-hidden="true"></i></td>
+                                <td class="text-center" data-toggle="tooltip" data-placement="top" title="No Aprobado"><i class="fa fa-close red-text" aria-hidden="true"></i></td>
                             </tr>
                             <tr>
-                                <td><img src="~/Content/img/flags/BR.gif" style="border-radius: 0 0 0 0;" /></td>
+                                <td><img src = "~/Content/img/flags/BR.gif" style="border-radius: 0 0 0 0;" /></td>
                                 <td>Flávia Piovesan</td>
-                                <td class="text-center"><i class="fa fa-envelope-open-o orange-text" aria-hidden="true"></i></td>
+                                <td class="text-center" data-toggle="tooltip" data-placement="top" title="Pendiente"><i class="fa fa-envelope-open-o orange-text" aria-hidden="true"></i></td>
                             </tr>
                         </tbody>
                     </table>
@@ -147,25 +164,29 @@
             <!--Docs and btn-->
             <div class="col-sm-12 col-md-6 my-2">
                 <div class="card white z-depth-2 p-4">
-                    <p class="font-weight-bold"><i class="fa fa-file-text" aria-hidden="true"></i> Documentos <span class="badge badge-primary badge-pill">4</span></p>
-                    <div class="list-group">
-                        <a href="#" class="list-group-item active disabled py-1">Documento principal</a>
-                        <a href="#" class="list-group-item list-group-item-action waves-effect py-1"><i class="fa fa-file-word-o" aria-hidden="true"></i> &nbsp; Dapibus ac facilisis in.docx</a>
-                    </div>
-                    <div class="list-group mt-2">
-                        <a href="#" class="list-group-item active disabled py-1">Documentos de soporte</a>
-                        <a href="#" class="list-group-item list-group-item-action waves-effect py-1"><i class="fa fa-file-excel-o" aria-hidden="true"></i> &nbsp; Morbi leo risus.xls</a>
-                        <a href="#" class="list-group-item list-group-item-action waves-effect py-1"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp; Porta ac consectetur ac.pdf</a>
-                        <a href="#" class="list-group-item list-group-item-action waves-effect py-1"><i class="fa fa-file-photo-o" aria-hidden="true"></i> &nbsp; Vestibulum at eros.jpeg</a>
+                    <div>
+                        <p class="font-weight-bold float-left">Documentos <span class="badge badge-primary badge-pill">4</span></p>
+                        <i class="fa fa-2x fa-file float-right"  style="margin-top:-15px; margin-right:-15px; color:#E0E0E0;" aria-hidden="true"></i>
                     </div>
                     
+                    <div class="list-group">
+                        <a href = "#" class="list-group-item active disabled py-1">Documento principal</a>
+                        <a href = "#" class="list-group-item list-group-item-action waves-effect py-1"><i class="fa fa-file-word-o" aria-hidden="true"></i> &nbsp; Dapibus ac facilisis in.docx<i class="fa fa-code-fork pull-right" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Versión anterior"></i></a>
+                    </div>
+                    <div class="list-group mt-2">
+                        <a href = "#" class="list-group-item active disabled py-1">Documentos de soporte</a>
+                        <a href = "#" class="list-group-item list-group-item-action waves-effect py-1"><i class="fa fa-file-excel-o" aria-hidden="true"></i> &nbsp; Morbi leo risus.xls<i class="fa fa-code-fork pull-right" aria-hidden="true"  data-toggle="tooltip" data-placement="top" title="Versión anterior"></i></a>
+                        <a href = "#" class="list-group-item list-group-item-action waves-effect py-1"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp; Porta ac consectetur ac.pdf<i class="fa fa-code-fork pull-right" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Versión anterior"></i></a>
+                        <a href = "#" class="list-group-item list-group-item-action waves-effect py-1"><i class="fa fa-file-photo-o" aria-hidden="true"></i> &nbsp; Vestibulum at eros.jpeg<i class="fa fa-code-fork pull-right" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Versión anterior"></i></a>
+                    </div>
+
                     <div class="my-4 text-center">
-                        <button class="btn btn-lg @(@Model.StatusId == 1 ? "blue-gradient" : (@Model.StatusId == 2 ? "purple-gradient" : "peach-gradient disabled")) btn-rounded" data-toggle="collapse" data-target="#collapseOne"><i class="switch fa fa-pencil-square-o pr-2" aria-hidden="true"></i>@(@Model.StatusId == 1 ? "Vóte ahora!" : (@Model.StatusId == 2 ? "Editar voto" : "Votación cerrada"))</button>
+                        <button class="btn btn-lg @(@Model.StatusId == 1 ? "blue-gradient" : (@Model.StatusId == 2 ? "purple-gradient" : "peach-gradient disabled")) btn-rounded" data-toggle="collapse" data-target="#collapseOne"><i class="switch fa fa-toggle-down pr-2" aria-hidden="true"></i>@(@Model.StatusId == 1 ? "Vóte ahora!" : (@Model.StatusId == 2 ? "Editar voto" : "Votación cerrada"))</button>
                     </div>
                 </div>
             </div>
-            <!--Docs and btn-->
-            
+            <!--/.Docs and btn-->
+
         </div>
         <!--Voting-->
         <div class="row mt-5">
@@ -180,53 +201,43 @@
                                 </div>
                                 <div class="col-1">
                                     <div class="float-right">
-                                        <button type="button" class="close" aria-label="Close" data-toggle="collapse" data-target="#collapseOne">
+                                        <button type = "button" class="close" aria-label="Close" data-toggle="collapse" data-target="#collapseOne">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                 </div>
                             </div>
-                            
+                            <!--Info Alert-->
+                            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                                <i class="fa fa-exclamation-triangle"></i> &nbsp;
+                                Este proceso de votacion sera cerrado al alcanzar el minimo de votos requeridos.
+                                <button type = "button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <!--/.Info Alert-->
                             <p class="mb-0 text-muted">Esta es la descripción del proceso de votación que el administrador puede agregar el momento de crear la votación.</p>
                             <hr />
                             <div class="row">
                                 <div class="col">
-                                    <h4 class="flex-center font-weight-bold">Votar</h4>
+                                    <h4 class="flex-center font-weight-bold">Su voto: &nbsp; <span id = "vote-result" class="blue-grey-text"></span>&nbsp;<a id = "clear-vote" class="red-text" style="display: none" data-toggle="tooltip" data-placement="top" title="Remover su voto." ><i class="fa fa-times" aria-hidden="true"></i></a></h4>
                                 </div>
                             </div>
 
 
                             <div class="row">
                                 <div class="col">
-                                    <div class="btn-group flex-center" data-toggle="buttons">
-                                        <label class="btn btn-lg btn-success">
-                                            <input type="radio" name="options" id="option1" autocomplete="off"> Aprobar
+                                    <div class="flex-center" id="voting-options" data-toggle="buttons"> @*btn-group*@
+                                        <label class="btn btn-lg btn-success btn-rounded">
+                                            <input type="radio" name="voting-options" id="vote-approved" autocomplete="off" value="Aprobado"> Aprobar
                                         </label>
                                         &nbsp;
-                                        <label class="btn btn-lg btn-danger">
-                                            <input type="radio" name="options" id="option2" autocomplete="off"> No aprobar
+                                        <label class="btn btn-lg btn-danger btn-rounded">
+                                            <input type="radio" name="voting-options" id="vote-disapproved" autocomplete="off" value="No aprobado"> No aprobar
                                         </label>
                                     </div>
                                 </div>
                             </div>
-
-
-                            @*<div class="row">
-                                <div class="col">
-                                    <div class="pull-right">
-                                        <a class="btn-floating btn-lg green"><i class="fa fa-check"></i></a>
-                                        <br />
-                                        <span class="font-weight-bold">Aprobar</span>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="pull-left">
-                                        <a class="btn-floating btn-lg red"><i class="fa fa-close"></i></a>
-                                        <br />
-                                        <span class="font-weight-bold">No aprobar</span>
-                                    </div>
-                                </div>
-                            </div>*@
 
                             <div class="row pt-4">
                                 <div class="col">
@@ -239,9 +250,9 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <button class="btn btn-primary pull-right btn-lg" type="button" data-toggle="collapse" data-target="#collapseOne">Guardar Votación <i class="fa fa-lg fa-check-square-o"></i></button>
-
+                            <div class="my-2 text-center">
+                                <button type="button" class="btn btn-lg btn-rounded btn-primary" data-toggle="collapse" data-target="#collapseOne" onclick="toastr.success('Su voto ha sido registrado.');"><i class="fa fa-check-square-o pr-2" aria-hidden="true"></i>Guardar Selección</button>
+                            </div>
                         </div>
                         <!--/.Panel-->
                     </div>
@@ -252,7 +263,7 @@
 
         <div class="row mt-5">
             <div class="col">
-                <!-- Comments -->
+                <!--Comments-->
                 <div class="white z-depth-2">
                     <div class="container p-4 ">
                         <h2 class="pt-4 text-center">Comentarios <span class="badge blue">3</span></h2>
@@ -413,7 +424,7 @@
                                                 </div>
 
                                                 <div class="text-right">
-                                                    <button class="btn btn-primary btn-sm waves-effect waves-light">Enviar</button>
+                                                    <button class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">Enviar</button>
                                                 </div>
 
                                             </div>
@@ -429,6 +440,7 @@
                         </section>
                     </div>
                 </div>
+                <!--/.Comments-->
             </div>
         </div>
     </div>
@@ -436,11 +448,32 @@
 
 
 <script type="text/javascript">
+
+    // Change vote now icon
     $('#collapseOne').on('shown.bs.collapse', function () {
-        $(".switch").removeClass("fa-pencil-square-o").addClass("fa-pencil-square");
+        $(".switch").removeClass("fa-toggle-down").addClass("fa-toggle-up");
     });
 
     $('#collapseOne').on('hidden.bs.collapse', function () {
-        $(".switch").removeClass("fa-pencil-square").addClass("fa-pencil-square-o");
+        $(".switch").removeClass("fa-toggle-up").addClass("fa-toggle-down");
     });
+
+    // Show voting result
+    $('#voting-options input').on('change', function () {
+        $('#vote-result').html($('input[name=voting-options]:checked', '#voting-options').val());
+        $('#clear-vote').show();
+    });
+
+    // Clear voting selection
+    $('#clear-vote').on('click', function () {
+        $('#vote-result').html('');
+        $('#clear-vote').hide();
+        $('#voting-options label').removeClass("active");
+    });
+
+    // Tooltips Initialization
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
 </script>

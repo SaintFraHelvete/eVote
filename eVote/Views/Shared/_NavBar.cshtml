@@ -5,8 +5,16 @@
         <a href="@Url.Action("Index", "Home")" class="navbar-brand">
             
             <img src="~/Content/img/oas-logo-sm.gif" height="70" class="d-inline-block align-top" alt="">
+            <div class="navbar-text blue-grey-text d-inline-flex" style="font-size:2rem; font-family:'Arial Narrow'">
+                <span class="green-text font-weight-bold">
+                    e
+                </span>
+                Vote
+                <span class="d-none d-sm-block">
+                    | Sistema de votacion electronica
+                </span>
+            </div>
             
-            <span class="blue-grey-text navbar-text" style="font-size:2rem; font-family:'Arial Narrow'"><span class="green-text font-weight-bold">e</span>Vote | Sistema de votacion electronica</span>
             
         </a>
         <!-- Collapse button -->
@@ -42,7 +50,7 @@
                 @*<i class="fa fa-user"></i>*@
 
                 <li class="nav-item"><a href="@Url.Action("Index", "Profile")" class="nav-link text-muted"><small class="mt-1">Bienvenido, Comisionado A &nbsp; &nbsp;</small><img src="~/Content/img/comm1.png" class="rounded-circle border" style="width: 1.5rem;"></a></li>
-                <li class="nav-item"><a class="nav-link text-muted mt-1"><i class="fa fa-bell"></i></a></li>
+                <li class="nav-item"><a class="nav-link text-muted mt-1"><i class="fa fa-bell"></i><span class="badge badge-danger badge-pill" style="margin-left:-10px;">3</span></a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-muted mt-1" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-globe"></i> ES</a>
                     <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
